@@ -15,7 +15,7 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://github.com/yourusername" 
+                href="https://github.com/muhammadsami987123" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
@@ -23,7 +23,7 @@ export default function Footer() {
                 <FiGithub size={20} />
               </a>
               <a 
-                href="https://linkedin.com/in/yourusername" 
+                href="https://www.linkedin.com/in/muhammad-sami-3aa6102b8/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
@@ -31,7 +31,7 @@ export default function Footer() {
                 <FiLinkedin size={20} />
               </a>
               <a 
-                href="https://twitter.com/yourusername" 
+                href="https://twitter.com/MSAMIWASEEM1" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
@@ -70,20 +70,20 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4">Contact</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-2">
-              Email: your.email@example.com
+              Email: m.samiwaseem1234@gmail.com
             </p>
             <p className="text-gray-600 dark:text-gray-300 mb-2">
-              Phone: +1 (234) 567-890
+              Phone: +92 3102256203
             </p>
             <p className="text-gray-600 dark:text-gray-300">
-              Location: City, State, Country
+              Location: Karachi,Sindh,Pakistan
             </p>
           </div>
         </div>
         
         <div className="pt-8 border-t border-gray-200 dark:border-gray-700 text-center">
           <p className="text-gray-600 dark:text-gray-300">
-            © {currentYear} Your Name. All rights reserved.
+            © {currentYear} Muhammad Sami. All rights reserved.
           </p>
         </div>
       </div>

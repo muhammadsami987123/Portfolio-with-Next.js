@@ -31,13 +31,13 @@ export default function Hero() {
     }
   };
   
-  const letter = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0
-    }
-  };
+  // const letter = {
+  //   hidden: { opacity: 0, y: 50 },
+  //   visible: {
+  //     opacity: 1,
+  //     y: 0
+  //   }
+  // };
 
   // New animation for the tagline
   const taglineAnimation = {
@@ -111,7 +111,7 @@ export default function Hero() {
                 animate="visible"
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight"
               >
-                <span className="block">Hi, I'm <motion.span 
+                <span className="block">Hi, I am <motion.span 
                   className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-500 dark:to-purple-500"
                 >
                   Muhammad Sami

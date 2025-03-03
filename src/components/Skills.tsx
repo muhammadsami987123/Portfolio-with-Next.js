@@ -1,5 +1,5 @@
 'use client';
-import { SiPython, SiSharp } from 'react-icons/si';
+import { SiPython, SiSanity } from 'react-icons/si';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
@@ -19,7 +19,6 @@ import {
   SiJavascript, 
   SiTypescript, 
   SiNodedotjs, 
-  SiMongodb, 
   SiPostgresql, 
   SiDocker, 
   SiGit,
@@ -50,11 +49,11 @@ const skillCategories = [
     description: 'Building responsive, accessible, and performant user interfaces',
     skills: [
       { name: 'React', icon: <SiReact />, proficiency: 90 },
-      { name: 'Next.js', icon: <SiNextdotjs />, proficiency: 85 },
+      { name: 'Next.js', icon: <SiNextdotjs />, proficiency: 100 },
       { name: 'JavaScript', icon: <SiJavascript />, proficiency: 90 },
-      { name: 'TypeScript', icon: <SiTypescript />, proficiency: 80 },
-      { name: 'Tailwind CSS', icon: <SiTailwindcss />, proficiency: 95 },
-      { name: 'CSS3', icon: <SiCss3 />, proficiency: 85 },
+      { name: 'TypeScript', icon: <SiTypescript />, proficiency: 93 },
+      { name: 'Tailwind CSS', icon: <SiTailwindcss />, proficiency: 100 },
+      { name: 'CSS3', icon: <SiCss3 />, proficiency: 98 },
       { name: 'HTML5', icon: <SiHtml5 />, proficiency: 95 },
       { name: 'Framer Motion', icon: <SiFramer />, proficiency: 75 }
     ]
@@ -65,12 +64,12 @@ const skillCategories = [
     icon: <FiServer size={24} className="text-green-600 dark:text-green-400" />,
     description: 'Developing robust server-side applications and APIs',
     skills: [
-      { name: 'Node.js', icon: <SiNodedotjs />, proficiency: 85 },
-      { name: 'Express', icon: <SiExpress />, proficiency: 80 },
-      { name: 'Python', icon: <SiPython />, proficiency: 75 },
-      { name: 'Django', icon: <SiDjango />, proficiency: 70 },
+      { name: 'Node.js', icon: <SiNodedotjs />, proficiency: 91 },
+      { name: 'Express', icon: <SiExpress />, proficiency: 65 },
+      { name: 'Python', icon: <SiPython />, proficiency: 76 },
+      { name: 'Django', icon: <SiDjango />, proficiency: 19 },
       { name: 'RESTful APIs', icon: <FiServer className="text-sm" />, proficiency: 90 },
-      { name: 'GraphQL', icon: <SiGraphql />, proficiency: 75 }
+      { name: 'GraphQL', icon: <SiGraphql />, proficiency: 18 }
     ]
   },
   {
@@ -79,11 +78,11 @@ const skillCategories = [
     icon: <FiDatabase size={24} className="text-purple-600 dark:text-purple-400" />,
     description: 'Designing and optimizing database structures for applications',
     skills: [
-      { name: 'MongoDB', icon: <SiMongodb />, proficiency: 85 },
-      { name: 'PostgreSQL', icon: <SiPostgresql />, proficiency: 80 },
-      { name: 'MySQL', icon: <SiMysql />, proficiency: 75 },
-      { name: 'Supabase', icon: <SiSupabase />, proficiency: 70 },
-      { name: 'Firebase', icon: <SiFirebase />, proficiency: 80 }
+      { name: 'Sanity', icon: <SiSanity />, proficiency: 91 },
+      { name: 'PostgreSQL', icon: <SiPostgresql />, proficiency: 10 },
+      { name: 'MySQL', icon: <SiMysql />, proficiency: 16},
+      { name: 'Supabase', icon: <SiSupabase />, proficiency: 13 },
+      { name: 'Firebase', icon: <SiFirebase />, proficiency: 9 }
     ]
   },
   {
@@ -92,11 +91,12 @@ const skillCategories = [
     icon: <FiTool size={24} className="text-red-600 dark:text-red-400" />,
     description: 'Automating deployment and managing cloud infrastructure',
     skills: [
-      { name: 'Docker', icon: <SiDocker />, proficiency: 75 },
-      { name: 'CI/CD', icon: <FiTool className="text-sm" />, proficiency: 80 },
+      { name: 'Vercel', icon: <SiVercel />, proficiency: 100 },
+      { name: 'Docker', icon: <SiDocker />, proficiency: 43 },
+      { name: 'CI/CD', icon: <FiTool className="text-sm" />, proficiency: 90 },
       { name: 'AWS', icon: <SiAmazon />, proficiency: 70 },
-      { name: 'Vercel', icon: <SiVercel />, proficiency: 90 },
-      { name: 'Netlify', icon: <SiNetlify />, proficiency: 85 }
+     
+      { name: 'Netlify', icon: <SiNetlify />, proficiency: 90 }
     ]
   },
   {
@@ -106,9 +106,9 @@ const skillCategories = [
     description: 'Managing code changes and collaborating with teams',
     skills: [
       { name: 'Git', icon: <SiGit />, proficiency: 90 },
-      { name: 'GitHub', icon: <SiGithub />, proficiency: 95 },
+      { name: 'GitHub', icon: <SiGithub />, proficiency: 97 },
       { name: 'GitLab', icon: <SiGitlab />, proficiency: 80 },
-      { name: 'Bitbucket', icon: <SiBitbucket />, proficiency: 75 }
+      { name: 'Bitbucket', icon: <SiBitbucket />, proficiency: 35 }
     ]
   },
   {
@@ -121,7 +121,8 @@ const skillCategories = [
       { name: 'TypeScript', icon: <SiTypescript />, proficiency: 85 },
       { name: 'Python', icon: <SiPython />, proficiency: 80 },
       // { name: 'Java', icon: <SiJava />, proficiency: 70 },
-      { name: 'C#', icon: <SiSharp />, proficiency: 65 }
+      { name: 'Next.js', icon: <SiNextdotjs />, proficiency: 100 }
+
     ]
   }
 ];

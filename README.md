@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Muhammad Sami - Portfolio Website
+
+## Overview
+Welcome to my personal portfolio website! This project serves as a comprehensive showcase of my skills, experience, and projects as a full-stack web developer. Built with cutting-edge web technologies, it demonstrates my ability to create responsive, performant, and visually appealing web applications that deliver exceptional user experiences.
+
+## Live Demo
+Check out the live version of my portfolio: [https://portfolio-sami-phi.vercel.app/](https://portfolio-sami-phi.vercel.app/)
+
+## Key Features
+- **Responsive Design**: Optimized for all devices and screen sizes
+- **Modern UI**: Built with Tailwind CSS and enhanced with Framer Motion animations
+- **Project Showcase**: Detailed case studies of my work with live demos and GitHub links
+- **Interactive Elements**: Smooth animations and transitions for better user engagement
+- **SEO Optimized**: Built with Next.js for better search engine visibility and performance
+- **Dark Mode**: User-friendly dark/light theme toggle
+
+## Technologies Used
+- **Frontend**: Next.js, React, TypeScript, Tailwind CSS
+- **Animation**: Framer Motion for smooth interactions
+- **Deployment**: Vercel for seamless CI/CD
+- **Version Control**: Git & GitHub for collaboration and version management
+- **Content Management**: Sanity CMS for dynamic content
+
+## Project Structure
+The project follows a modular component-based architecture, making it maintainable and scalable. Key sections include:
+- **Hero Section**: Introduction with social links and call-to-action
+- **About Section**: Professional background and skills overview
+- **Projects Section**: Detailed showcase of completed projects
+- **Skills Section**: Interactive skill matrix with proficiency levels
+- **Contact Section**: Easy-to-use contact form
 
 ## Getting Started
+To run this project locally:
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Run the development server: `npm run dev`
+4. Open `http://localhost:3000` in your browser
 
-First, run the development server:
+This portfolio represents my commitment to clean code, modern design, and user-centric development. It's not just a showcase of my work, but a testament to my passion for web development and continuous learning.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
