@@ -66,10 +66,10 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-gray-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-800 z-0"></div>
       
       {/* Grid pattern overlay with parallax effect */}
-      <div 
-        className="absolute inset-0 bg-[url('/grid.svg')] bg-center bg-repeat bg-fixed [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] dark:[mask-image:linear-gradient(180deg,rgba(255,255,255,0.1),rgba(255,255,255,0))] opacity-10 z-10"
+      {/* <div 
+        className="absolute inset-0 bg-[url('/')] bg-center bg-repeat bg-fixed [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] dark:[mask-image:linear-gradient(180deg,rgba(255,255,255,0.1),rgba(255,255,255,0))] opacity-10 z-10"
         style={{ transform: `translateY(${scrollY * 0.1}px)` }}
-      ></div>
+      ></div> */}
       
       {/* Decorative particles/blobs */}
       <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-200 dark:bg-blue-900/30 rounded-full blur-3xl opacity-40 animate-blob z-10"></div>

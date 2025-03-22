@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,6 +30,13 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center py-4 md:py-6">
           <div className="flex items-center">
+            <Image 
+              src="/profile.png"
+              alt="Profile Image"
+              width={40}
+              height={40}
+              className="rounded-full mr-2"
+            />
             <Link href="/" className="text-xl font-bold">
               Portfolio
             </Link>
