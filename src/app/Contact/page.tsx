@@ -29,7 +29,7 @@ export default function Contact() {
       if (!res.ok) throw new Error('Failed to send message');
       setSubmitSuccess(true);
       setFormData({ name: '', email: '', message: '' });
-    } catch (err) {
+    } catch {
       setSubmitError('There was a problem sending your message.');
     } finally {
       setIsSubmitting(false);
