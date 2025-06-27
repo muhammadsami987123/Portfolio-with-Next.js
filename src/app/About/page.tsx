@@ -12,7 +12,9 @@ import {
   FiCode, 
   FiGlobe, 
   FiAward,
-  FiExternalLink
+  FiExternalLink,
+  FiLayout,
+  FiTool
 } from 'react-icons/fi';
 
 export default function About() {
@@ -31,7 +33,8 @@ export default function About() {
     { id: 'story', label: 'My Story', icon: <FiBook /> },
     { id: 'experience', label: 'Experience', icon: <FiCode /> },
     { id: 'education', label: 'Education', icon: <FiGlobe /> },
-    { id: 'skills', label: 'Skills', icon: <FiAward /> }
+    { id: 'skills', label: 'Skills', icon: <FiAward /> },
+    { id: 'ai', label: 'AI Journey', icon: <FiGlobe /> },
   ];
   
   // Skills list for the skills tab
@@ -46,71 +49,103 @@ export default function About() {
     story: (
       <div className="space-y-4 md:space-y-6">
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-          I am a <span className="text-blue-600 dark:text-blue-400 font-medium">passionate full-stack developer</span> based in Karachi, Sindh, with expertise in crafting exceptional digital experiences that merge form and function. My journey in web development began with a deep curiosity about digital products, which has evolved into a commitment to engineering solutions that deliver real value.
+          I am a <span className="text-blue-600 dark:text-blue-400 font-medium">Full Stack Web Developer, AI & Automation Enthusiast, and IT Innovator</span> based in Karachi, Sindh. My expertise lies in building responsive, scalable, and intelligent web applications using Next.js, React, TypeScript, Tailwind CSS, and Sanity CMS. I have successfully delivered 50+ real-world projects, including 7+ e-commerce platforms with advanced integrations such as Stripe and ShipEngine.
         </p>
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-          With a specialization in modern technologies like <span className="text-blue-600 dark:text-blue-400 font-medium">Next.js, React, and Tailwind CSS</span>, I have built a diverse portfolio of websites and e-commerce platforms that prioritize user experience while achieving business objectives. My philosophy is grounded in creating clean, maintainable code that stands the test of time.
+          My journey into AI and automation began with a deep curiosity about how technology can simplify and enhance everyday life. Since then, I have engineered 20+ advanced AI agents—leveraging OpenAI SDK, LangChain, HuggingFace, CrewAI, Chainlit, and Streamlit—focused on automation, productivity, and intelligent problem-solving. My work spans from conversational AI to workflow automation, always with an eye on real-world impact.
+        </p>
+        <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+          I thrive on solving complex problems and believe every challenge is an opportunity to innovate. My approach is methodical and client-focused: I break down problems, design scalable solutions, and deliver results that drive measurable business growth. My extensive client experience includes not only technical delivery but also client hunting, acquisition, and long-term relationship management.
         </p>
         <blockquote className="pl-4 border-l-4 border-blue-500 italic text-gray-600 dark:text-gray-400 my-4 md:my-6">
-         Every line of code should contribute to a solution that is not just functional, but exceptional.
+          "Every line of code should contribute to a solution that is not just functional, but exceptional—and, where possible, intelligent."
         </blockquote>
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-          Beyond coding, I nurture my creativity through Urdu literature and stay at the cutting edge of technology through continuous learning and experimentation. This balance of artistic appreciation and technical pursuit informs my approach to every project.
+          I am committed to continuous learning and staying at the forefront of technology, with a special passion for AI, cloud computing, and the future of automation. Most of my AI agents are currently private drafts, available on GitHub or LinkedIn upon request, as I focus on refining and perfecting them for real-world deployment.
         </p>
       </div>
     ),
     experience: (
       <div className="space-y-6 md:space-y-8">
+        <div className="relative pl-6 md:pl-8 border-l-2 border-indigo-500">
+          <div className="absolute left-[-4px] md:left-[-8px] top-1 w-3 h-3 md:w-4 md:h-4 rounded-full bg-indigo-500"></div>
+          <div className="mb-1">
+            <h4 className="font-bold text-lg md:text-xl text-gray-900 dark:text-white">AI Agent Developer</h4>
+            <p className="text-indigo-600 dark:text-indigo-400 font-medium">Private Projects (OpenAI SDK, LangChain, HuggingFace, CrewAI, Chainlit, Streamlit)</p>
+            <p className="text-gray-500 dark:text-gray-400 text-sm mb-2 md:mb-3">2024 –  Present</p>
+          </div>
+          <ul className="space-y-2 text-gray-700 dark:text-gray-300 text-sm md:text-base">
+            <li className="flex items-start">
+              <span className="text-indigo-500 mr-2 flex-shrink-0">•</span>
+              <span>Engineered 20+ advanced AI agents for conversational interfaces, data analysis, automation, and creative problem-solving</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-indigo-500 mr-2 flex-shrink-0">•</span>
+              <span>Expert in prompt engineering, LLM integration, multi-agent orchestration, and leveraging state-of-the-art AI frameworks</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-indigo-500 mr-2 flex-shrink-0">•</span>
+              <span>Rapid prototyping and iteration of AI solutions, with a focus on reliability, scalability, and ethical AI practices</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-indigo-500 mr-2 flex-shrink-0">•</span>
+              <span>Most agents are private drafts; details available on GitHub/LinkedIn upon request</span>
+            </li>
+          </ul>
+        </div>
         <div className="relative pl-6 md:pl-8 border-l-2 border-blue-500">
           <div className="absolute left-[-4px] md:left-[-8px] top-1 w-3 h-3 md:w-4 md:h-4 rounded-full bg-blue-500"></div>
           <div className="mb-1">
             <h4 className="font-bold text-lg md:text-xl text-gray-900 dark:text-white">Full Stack Developer</h4>
             <p className="text-blue-600 dark:text-blue-400 font-medium">Client Projects & E-commerce Solutions</p>
-            <p className="text-gray-500 dark:text-gray-400 text-sm mb-2 md:mb-3">2022 - Present</p>
+            <p className="text-gray-500 dark:text-gray-400 text-sm mb-2 md:mb-3">2023 – Present</p>
           </div>
           <ul className="space-y-2 text-gray-700 dark:text-gray-300 text-sm md:text-base">
             <li className="flex items-start">
               <span className="text-blue-500 mr-2 flex-shrink-0">•</span>
-              <span>Engineered 7+ comprehensive e-commerce platforms with Stripe payment integration, custom checkout flows, and order management systems</span>
+              <span>Extensive client experience: skilled in client hunting, acquisition, and management, with a proven record of successfully working with and delivering solutions for multiple clients</span>
             </li>
             <li className="flex items-start">
               <span className="text-blue-500 mr-2 flex-shrink-0">•</span>
-              <span>Developed responsive, performance-optimized web applications with Next.js, React, and Tailwind CSS</span>
+              <span>Architected and launched 7+ scalable e-commerce platforms, integrating secure Stripe payments, custom checkout flows, and robust order management systems</span>
             </li>
             <li className="flex items-start">
               <span className="text-blue-500 mr-2 flex-shrink-0">•</span>
-              <span>Designed and implemented RESTful APIs and efficient database architectures</span>
+              <span>Delivered 50+ high-performance, mobile-first web applications with Next.js, React, and Tailwind CSS, achieving up to 99 Lighthouse scores</span>
             </li>
             <li className="flex items-start">
               <span className="text-blue-500 mr-2 flex-shrink-0">•</span>
-              <span>Led client consultations to translate business requirements into technical solutions</span>
+              <span>Designed and implemented RESTful APIs and optimized database architectures for reliability and speed</span>
             </li>
             <li className="flex items-start">
               <span className="text-blue-500 mr-2 flex-shrink-0">•</span>
-              <span>Delivered 50+ websites with an average 15% improvement in performance metrics</span>
+              <span>Led client consultations, translating complex business requirements into innovative technical solutions</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-blue-500 mr-2 flex-shrink-0">•</span>
+              <span>Consistently improved site performance and SEO, resulting in measurable business growth for clients</span>
             </li>
           </ul>
         </div>
-        
         <div className="relative pl-6 md:pl-8 border-l-2 border-green-500">
           <div className="absolute left-[-4px] md:left-[-8px] top-1 w-3 h-3 md:w-4 md:h-4 rounded-full bg-green-500"></div>
           <div className="mb-1">
             <h4 className="font-bold text-lg md:text-xl text-gray-900 dark:text-white">Web Development Portfolio</h4>
             <p className="text-green-600 dark:text-green-400 font-medium">Freelance & Personal Projects</p>
-            <p className="text-gray-500 dark:text-gray-400 text-sm mb-2 md:mb-3">2020 - 2022</p>
+            <p className="text-gray-500 dark:text-gray-400 text-sm mb-2 md:mb-3">2020 – 2022</p>
           </div>
           <ul className="space-y-2 text-gray-700 dark:text-gray-300 text-sm md:text-base">
             <li className="flex items-start">
               <span className="text-green-500 mr-2 flex-shrink-0">•</span>
-              <span>Built a diverse portfolio of websites for local businesses and personal brand development</span>
+              <span>Developed a diverse portfolio of websites for local businesses, personal brands, and startups, focusing on user experience and conversion optimization</span>
             </li>
             <li className="flex items-start">
               <span className="text-green-500 mr-2 flex-shrink-0">•</span>
-              <span>Implemented advanced performance optimization techniques, reducing load times by 30%</span>
+              <span>Implemented advanced performance optimization techniques, reducing load times by up to 30% and boosting engagement</span>
             </li>
             <li className="flex items-start">
               <span className="text-green-500 mr-2 flex-shrink-0">•</span>
-              <span>Mastered fundamental and advanced concepts in JavaScript, HTML, and CSS</span>
+              <span>Mastered both fundamental and advanced concepts in JavaScript, HTML, and CSS, applying them to real-world projects</span>
             </li>
           </ul>
         </div>
@@ -173,42 +208,51 @@ export default function About() {
       </div>
     ),
     skills: (
-      <div className="space-y-4 md:space-y-6">
-        <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base">
-          My technical expertise spans the full development stack, with specialized focus on modern web technologies and e-commerce solutions:
+      <div className="space-y-6">
+        <p className="text-lg text-center font-semibold text-blue-700 dark:text-blue-300 mb-2">
+          My Key Skills
         </p>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-          {skills.map((skillGroup) => (
-            <div key={skillGroup.category} className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-3 md:p-4">
-              <h4 className="font-bold text-base md:text-lg text-gray-900 dark:text-white mb-2 md:mb-3 border-b border-gray-200 dark:border-gray-700 pb-2">
-                {skillGroup.category}
-              </h4>
-              <div className="flex flex-wrap gap-1 md:gap-2">
-                {skillGroup.items.map((skill) => (
-                  <span 
-                    key={skill} 
-                    className="px-2 md:px-3 py-1 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs md:text-sm border border-gray-200 dark:border-gray-600 shadow-sm"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
+        <div className="flex flex-wrap gap-2 justify-center overflow-x-auto pb-2">
+          <span className="flex items-center px-3 py-1 bg-blue-50 dark:bg-blue-900 rounded-full text-blue-700 dark:text-blue-300 font-medium text-xs border border-blue-200 dark:border-blue-700"><FiLayout className="mr-1" /> React.js</span>
+          <span className="flex items-center px-3 py-1 bg-blue-50 dark:bg-blue-900 rounded-full text-blue-700 dark:text-blue-300 font-medium text-xs border border-blue-200 dark:border-blue-700"><FiLayout className="mr-1" /> Next.js</span>
+          <span className="flex items-center px-3 py-1 bg-blue-50 dark:bg-blue-900 rounded-full text-blue-700 dark:text-blue-300 font-medium text-xs border border-blue-200 dark:border-blue-700"><FiLayout className="mr-1" /> TypeScript</span>
+          <span className="flex items-center px-3 py-1 bg-blue-50 dark:bg-blue-900 rounded-full text-blue-700 dark:text-blue-300 font-medium text-xs border border-blue-200 dark:border-blue-700"><FiLayout className="mr-1" /> Tailwind CSS</span>
+          <span className="flex items-center px-3 py-1 bg-blue-50 dark:bg-blue-900 rounded-full text-blue-700 dark:text-blue-300 font-medium text-xs border border-blue-200 dark:border-blue-700"><FiLayout className="mr-1" /> Sanity CMS</span>
+          <span className="flex items-center px-3 py-1 bg-blue-50 dark:bg-blue-900 rounded-full text-blue-700 dark:text-blue-300 font-medium text-xs border border-blue-200 dark:border-blue-700"><FiLayout className="mr-1" /> JavaScript</span>
+          <span className="flex items-center px-3 py-1 bg-blue-50 dark:bg-blue-900 rounded-full text-blue-700 dark:text-blue-300 font-medium text-xs border border-blue-200 dark:border-blue-700"><FiLayout className="mr-1" /> HTML5</span>
+          <span className="flex items-center px-3 py-1 bg-blue-50 dark:bg-blue-900 rounded-full text-blue-700 dark:text-blue-300 font-medium text-xs border border-blue-200 dark:border-blue-700"><FiLayout className="mr-1" /> CSS3</span>
+          <span className="flex items-center px-3 py-1 bg-purple-50 dark:bg-purple-900 rounded-full text-purple-700 dark:text-purple-300 font-medium text-xs border border-purple-200 dark:border-purple-700"><FiCode className="mr-1" /> Python</span>
+          <span className="flex items-center px-3 py-1 bg-purple-50 dark:bg-purple-900 rounded-full text-purple-700 dark:text-purple-300 font-medium text-xs border border-purple-200 dark:border-purple-700">OpenAI SDK</span>
+          <span className="flex items-center px-3 py-1 bg-purple-50 dark:bg-purple-900 rounded-full text-purple-700 dark:text-purple-300 font-medium text-xs border border-purple-200 dark:border-purple-700">LangChain</span>
+          <span className="flex items-center px-3 py-1 bg-purple-50 dark:bg-purple-900 rounded-full text-purple-700 dark:text-purple-300 font-medium text-xs border border-purple-200 dark:border-purple-700">HuggingFace</span>
+          <span className="flex items-center px-3 py-1 bg-purple-50 dark:bg-purple-900 rounded-full text-purple-700 dark:text-purple-300 font-medium text-xs border border-purple-200 dark:border-purple-700">CrewAI</span>
+          <span className="flex items-center px-3 py-1 bg-purple-50 dark:bg-purple-900 rounded-full text-purple-700 dark:text-purple-300 font-medium text-xs border border-purple-200 dark:border-purple-700">Chainlit</span>
+          <span className="flex items-center px-3 py-1 bg-purple-50 dark:bg-purple-900 rounded-full text-purple-700 dark:text-purple-300 font-medium text-xs border border-purple-200 dark:border-purple-700">Streamlit</span>
+          <span className="flex items-center px-3 py-1 bg-purple-50 dark:bg-purple-900 rounded-full text-purple-700 dark:text-purple-300 font-medium text-xs border border-purple-200 dark:border-purple-700">Prompt Engineering</span>
+          <span className="flex items-center px-3 py-1 bg-purple-50 dark:bg-purple-900 rounded-full text-purple-700 dark:text-purple-300 font-medium text-xs border border-purple-200 dark:border-purple-700">LLMs</span>
+          <span className="flex items-center px-3 py-1 bg-green-50 dark:bg-green-900 rounded-full text-green-700 dark:text-green-300 font-medium text-xs border border-green-200 dark:border-green-700"><FiTool className="mr-1" /> Node.js</span>
+          <span className="flex items-center px-3 py-1 bg-green-50 dark:bg-green-900 rounded-full text-green-700 dark:text-green-300 font-medium text-xs border border-green-200 dark:border-green-700"><FiTool className="mr-1" /> Express</span>
+          <span className="flex items-center px-3 py-1 bg-green-50 dark:bg-green-900 rounded-full text-green-700 dark:text-green-300 font-medium text-xs border border-green-200 dark:border-green-700"><FiTool className="mr-1" /> Docker</span>
+          <span className="flex items-center px-3 py-1 bg-green-50 dark:bg-green-900 rounded-full text-green-700 dark:text-green-300 font-medium text-xs border border-green-200 dark:border-green-700"><FiTool className="mr-1" /> AWS</span>
+          <span className="flex items-center px-3 py-1 bg-green-50 dark:bg-green-900 rounded-full text-green-700 dark:text-green-300 font-medium text-xs border border-green-200 dark:border-green-700"><FiTool className="mr-1" /> Vercel</span>
+          <span className="flex items-center px-3 py-1 bg-green-50 dark:bg-green-900 rounded-full text-green-700 dark:text-green-300 font-medium text-xs border border-green-200 dark:border-green-700"><FiTool className="mr-1" /> Netlify</span>
+          <span className="flex items-center px-3 py-1 bg-green-50 dark:bg-green-900 rounded-full text-green-700 dark:text-green-300 font-medium text-xs border border-green-200 dark:border-green-700"><FiTool className="mr-1" /> Git</span>
+          <span className="flex items-center px-3 py-1 bg-green-50 dark:bg-green-900 rounded-full text-green-700 dark:text-green-300 font-medium text-xs border border-green-200 dark:border-green-700"><FiTool className="mr-1" /> GitHub</span>
         </div>
-        
-        <div className="mt-4">
-          <h4 className="font-bold text-base md:text-lg text-gray-900 dark:text-white mb-2 md:mb-3">Professional Strengths</h4>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 md:gap-3">
-            {['Problem Solving', 'Technical Architecture', 'User Experience', 'Performance Optimization', 'Clean Code', 'Client Communication'].map((strength) => (
-              <div key={strength} className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-blue-500 flex-shrink-0"></div>
-                <span className="text-gray-700 dark:text-gray-300 text-xs md:text-sm">{strength}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+      </div>
+    ),
+    ai: (
+      <div className="space-y-4 md:space-y-6">
+        <h4 className="font-bold text-lg md:text-xl text-indigo-700 dark:text-indigo-400">My AI Journey</h4>
+        <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+          My AI journey has been defined by a relentless pursuit of innovation and mastery in intelligent systems. I have built over 20 AI agents using frameworks such as OpenAI SDK, LangChain, HuggingFace, CrewAI, Chainlit, and Streamlit. My focus areas include prompt engineering, LLMs, and agent orchestration. While most of my work remains private, I am committed to pushing the boundaries of what AI can achieve.
+        </p>
+        <ul className="list-disc pl-6 text-gray-700 dark:text-gray-300">
+          <li>20+ AI agents (private drafts on GitHub/LinkedIn)</li>
+          <li>Expertise in OpenAI SDK, LangChain, HuggingFace, CrewAI, Chainlit, Streamlit</li>
+          <li>Focus on conversational AI, data analysis, and workflow automation</li>
+          <li>Continuous learning and experimentation in AI/ML</li>
+        </ul>
       </div>
     )
   };

@@ -80,7 +80,7 @@ export default function Contact() {
               <div>
                 <h4 className="font-bold text-base sm:text-lg">Phone</h4>
                 <a href="tel:+1234567890" className="text-blue-600 dark:text-blue-400 hover:underline text-sm sm:text-base">
-                  +92 3102256203
+                  +92 3477286878
                 </a>
               </div>
             </div>

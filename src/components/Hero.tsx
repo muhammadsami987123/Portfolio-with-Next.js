@@ -8,6 +8,7 @@ import Image from 'next/image';
 
 export default function Hero() {
   const [scrollY, setScrollY] = useState(0);
+  const [orbitAngle, setOrbitAngle] = useState(0);
 
   // Update scroll position for parallax effect
   useEffect(() => {
@@ -16,6 +17,13 @@ export default function Hero() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setOrbitAngle((prev) => (prev + 0.5) % 360);
+    }, 16); // ~60fps
+    return () => clearInterval(interval);
   }, []);
 
   // Text animation variants
@@ -49,6 +57,17 @@ export default function Hero() {
     { icon: <FiLinkedin size={20} />, url: 'https://www.linkedin.com/in/muhammad-sami-3aa6102b8/', label: 'LinkedIn' },
     { icon: <FiTwitter size={20} />, url: 'https://twitter.com/MSAMIWASEEM1', label: 'Twitter' },
     { icon: <FiMail size={20} />, url: '#contact', label: 'Contact' },
+  ];
+
+  // Define your top skills for orbiting bubbles
+  const orbitSkills = [
+    { label: 'Full Stack Developer', color: 'bg-blue-600' },
+    { label: 'AI Engineer', color: 'bg-indigo-500' },
+    { label: 'Python Expert', color: 'bg-purple-600' },
+    { label: 'Next.js Specialist', color: 'bg-blue-500' },
+    { label: 'React Pro', color: 'bg-indigo-400' },
+    { label: 'LLM Developer', color: 'bg-purple-500' },
+    { label: 'OpenAI SDK Specialist', color: 'bg-gradient-to-r from-blue-500 to-purple-500 text-white' },
   ];
 
   return (
@@ -94,11 +113,14 @@ export default function Hero() {
                     Muhammad Sami
                   </motion.span>
                 </span>
+                <span className="block mt-2 text-lg sm:text-2xl lg:text-3xl font-semibold text-blue-700 dark:text-blue-300">
+                  AI Engineer • Full Stack Developer • Client Acquisition Specialist
+                </span>
               </motion.h1>
               
               <motion.div variants={taglineAnimation} initial="hidden" animate="visible" className="relative">
                 <motion.p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-lg relative z-10 pb-1">
-                  Web Developer | AI &amp; Python Enthusiast | Next.js, React, TypeScript, Tailwind | Building Scalable &amp; Intelligent Solutions
+                  Innovating with AI & Automation • Architecting intelligent agents and high-impact web apps • Proven success with OpenAI SDK, LangChain, Next.js, and more.
                 </motion.p>
                 <motion.div
                   className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-500 dark:to-purple-500"
@@ -200,23 +222,45 @@ export default function Hero() {
                 }}
               />
               
-              {/* Profile image */}
-              <div className="relative z-10 w-72 h-72 sm:w-80 sm:h-80 rounded-2xl overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl bg-white dark:bg-slate-800">
-                <Image
-                  src="/profile.png"
-                  alt="Muhammad Sami"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-600/30 to-transparent mix-blend-overlay"></div>
-                
-                {/* Stats badge */}
-                <div className="absolute top-4 left-4 px-2.5 py-1 bg-white dark:bg-slate-800 rounded-full text-xs font-medium shadow-md flex items-center">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mr-1.5"></div>
-                  Full Stack Developer
+              {/* Profile image with orbiting skill bubbles outside the image */}
+              <div className="relative z-10 w-72 h-72 sm:w-80 sm:h-80 rounded-2xl overflow-visible flex items-center justify-center">
+                {orbitSkills.map((bubble, i) => {
+                  const total = orbitSkills.length;
+                  const baseAngle = (360 / total) * i;
+                  const angle = (baseAngle + orbitAngle) % 360;
+                  const rad = (angle * Math.PI) / 180;
+                  const imageRadius = 140; // slightly larger than image half-width/height
+                  const bubbleRadius = 60; // distance from image edge to bubble center
+                  const orbitRadius = imageRadius + bubbleRadius; // keep bubbles outside image
+                  const x = Math.cos(rad) * orbitRadius;
+                  const y = Math.sin(rad) * orbitRadius;
+                  return (
+                    <div
+                      key={bubble.label}
+                      className={`absolute px-3 py-1 rounded-full text-xs font-semibold shadow-lg ${bubble.color} ${bubble.color.includes('gradient') ? '' : 'text-white'}`}
+                      style={{
+                        left: `calc(50% + ${x}px)`,
+                        top: `calc(50% + ${y}px)`,
+                        transform: 'translate(-50%, -50%)',
+                        zIndex: y > 0 ? 3 : 1,
+                        pointerEvents: 'none',
+                        transition: 'z-index 0.2s',
+                      }}
+                    >
+                      {bubble.label}
+                    </div>
+                  );
+                })}
+                <div className="relative w-72 h-72 sm:w-80 sm:h-80 rounded-2xl overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl bg-white dark:bg-slate-800">
+                  <Image
+                    src="/profile.png"
+                    alt="Muhammad Sami"
+                    fill
+                    className="object-cover rounded-2xl"
+                    priority
+                  />
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-600/30 to-transparent mix-blend-overlay rounded-2xl"></div>
                 </div>
               </div>
             </motion.div>

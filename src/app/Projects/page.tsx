@@ -52,14 +52,14 @@ const projects = [
     liveUrl: 'https://e-commerce--exclusive.vercel.app/',
     githubUrl: 'https://github.com/muhammadsami987123/Electronic-E-Commerce.git',
   },
-  {
-   id:7,
-   title : 'Admin Dashboard',
-   description : 'A responsive admin dashboard e-commerce website with user management, analytics, and product management features.',
-    tags : ['React', 'Node.js', 'next.js', 'sanity', 'Tailwind CSS'],
-    imageUrl : '/project16.png',
-    liveUrl : 'https://ecommerceadmindashboard-puce.vercel.app/',
-  },
+  // {
+  //  id:7,
+  //  title : 'Admin Dashboard',
+  //  description : 'A responsive admin dashboard e-commerce website with user management, analytics, and product management features.',
+  //   tags : ['React', 'Node.js', 'next.js', 'sanity', 'Tailwind CSS'],
+  //   imageUrl : '/project16.png',
+  //   liveUrl : 'https://ecommerceadmindashboard-puce.vercel.app/',
+  // },
   {
     id: 4,
     title: 'Todo Application',
@@ -87,6 +87,19 @@ export default function Projects() {
           My Projects
         </motion.h2>
         
+        <section className="mb-12 p-6 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-slate-900 dark:to-slate-800 rounded-xl shadow">
+          <h3 className="text-2xl font-bold mb-2 text-blue-700 dark:text-blue-300">AI Agents & OpenAI Projects</h3>
+          <p className="text-gray-700 dark:text-gray-300 mb-2">
+            Built 20+ AI agents using OpenAI SDK, LangChain, HuggingFace, CrewAI, Chainlit, and Streamlit. Most are private drafts (see GitHub/LinkedIn for details).
+          </p>
+          <ul className="list-disc pl-6 text-gray-700 dark:text-gray-300">
+            <li>Conversational AI</li>
+            <li>Data Analysis Bots</li>
+            <li>Workflow Automation Agents</li>
+            <li>Prompt Engineering & LLM Integration</li>
+          </ul>
+        </section>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div

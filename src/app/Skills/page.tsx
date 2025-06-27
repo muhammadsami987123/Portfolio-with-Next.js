@@ -66,7 +66,7 @@ const skillCategories = [
     skills: [
       { name: 'Node.js', icon: <SiNodedotjs />, proficiency: 91 },
       { name: 'Express', icon: <SiExpress />, proficiency: 65 },
-      { name: 'Python', icon: <SiPython />, proficiency: 76 },
+      { name: 'Python', icon: <SiPython />, proficiency: 95 },
       { name: 'Django', icon: <SiDjango />, proficiency: 19 },
       { name: 'RESTful APIs', icon: <FiServer className="text-sm" />, proficiency: 90 },
       { name: 'GraphQL', icon: <SiGraphql />, proficiency: 18 }
@@ -119,10 +119,26 @@ const skillCategories = [
     skills: [
       { name: 'JavaScript', icon: <SiJavascript />, proficiency: 90 },
       { name: 'TypeScript', icon: <SiTypescript />, proficiency: 85 },
-      { name: 'Python', icon: <SiPython />, proficiency: 80 },
+      { name: 'Python', icon: <SiPython />, proficiency: 95 },
       // { name: 'Java', icon: <SiJava />, proficiency: 70 },
       { name: 'Next.js', icon: <SiNextdotjs />, proficiency: 100 }
 
+    ]
+  },
+  {
+    id: 7,
+    title: 'AI & Machine Learning',
+    icon: <FiCode size={24} className="text-purple-600 dark:text-purple-400" />,
+    description: 'Building intelligent agents and leveraging state-of-the-art AI frameworks',
+    skills: [
+      { name: 'OpenAI SDK', icon: <SiPython />, proficiency: 90 },
+      { name: 'LangChain', icon: <SiPython />, proficiency: 80 },
+      { name: 'HuggingFace', icon: <SiPython />, proficiency: 75 },
+      { name: 'CrewAI', icon: <SiPython />, proficiency: 70 },
+      { name: 'Chainlit', icon: <SiPython />, proficiency: 70 },
+      { name: 'Streamlit', icon: <SiPython />, proficiency: 85 },
+      { name: 'Prompt Engineering', icon: <SiPython />, proficiency: 90 },
+      { name: 'LLMs', icon: <SiPython />, proficiency: 85 },
     ]
   }
 ];
