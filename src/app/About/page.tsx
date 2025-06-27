@@ -38,12 +38,12 @@ export default function About() {
   ];
   
   // Skills list for the skills tab
-  const skills = [
-    { category: 'Frontend', items: ['React.js', 'Next.js', 'Tailwind CSS', 'JavaScript/TypeScript', 'HTML5/CSS3'] },
-    { category: 'Backend', items: ['Node.js', 'Express', 'REST APIs', 'GraphQL', 'Database Design'] },
-    { category: 'Tools', items: ['Git/GitHub', 'Docker', 'CI/CD', 'AWS', 'Vercel/Netlify'] },
-    { category: 'E-commerce', items: ['Sanity CMS', 'Stripe Integration', 'ShipEngine', 'Payment Gateways', 'Order Management'] }
-  ];
+  // const skills = [
+  //   { category: 'Frontend', items: ['React.js', 'Next.js', 'Tailwind CSS', 'JavaScript/TypeScript', 'HTML5/CSS3'] },
+  //   { category: 'Backend', items: ['Node.js', 'Express', 'REST APIs', 'GraphQL', 'Database Design'] },
+  //   { category: 'Tools', items: ['Git/GitHub', 'Docker', 'CI/CD', 'AWS', 'Vercel/Netlify'] },
+  //   { category: 'E-commerce', items: ['Sanity CMS', 'Stripe Integration', 'ShipEngine', 'Payment Gateways', 'Order Management'] }
+  // ];
 
   const tabContent = {
     story: (
@@ -58,7 +58,7 @@ export default function About() {
           I thrive on solving complex problems and believe every challenge is an opportunity to innovate. My approach is methodical and client-focused: I break down problems, design scalable solutions, and deliver results that drive measurable business growth. My extensive client experience includes not only technical delivery but also client hunting, acquisition, and long-term relationship management.
         </p>
         <blockquote className="pl-4 border-l-4 border-blue-500 italic text-gray-600 dark:text-gray-400 my-4 md:my-6">
-          "Every line of code should contribute to a solution that is not just functional, but exceptional—and, where possible, intelligent."
+          &quot;Every line of code should contribute to a solution that is not just functional, but exceptional and where possible, intelligent.&quot;
         </blockquote>
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
           I am committed to continuous learning and staying at the forefront of technology, with a special passion for AI, cloud computing, and the future of automation. Most of my AI agents are currently private drafts, available on GitHub or LinkedIn upon request, as I focus on refining and perfecting them for real-world deployment.

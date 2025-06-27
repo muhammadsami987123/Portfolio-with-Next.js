@@ -51,6 +51,9 @@ importers:
       '@types/react-dom':
         specifier: ^19
         version: 19.0.4(@types/react@19.0.10)
+      '@types/react-icons':
+        specifier: ^2.2.7
+        version: 2.2.7
       eslint:
         specifier: ^9
         version: 9.21.0(jiti@2.4.2)
@@ -413,6 +416,12 @@ packages:
     resolution: {integrity: sha512-4fSQ8vWFkg+TGhePfUzVmat3eC14TXYSsiiDSLI0dVLsrm9gZFABjPy/Qu6TKgl1tq1Bu1yDsuQgY3A3DOjCcg==}
     peerDependencies:
       '@types/react': ^19.0.0
+
+  '@types/react-icon-base@2.1.6':
+    resolution: {integrity: sha512-ebbN1JjCm6RxBd3HdI1+8VCdiOI4qMjnl9DIHWJFrB/eYLF4mzIgdL34PIqCJBLY3vlwil9v6IHQvzsa8vgMsg==}
+
+  '@types/react-icons@2.2.7':
+    resolution: {integrity: sha512-qxc8xtwgDG5Ub/WILU9tZa7zxz2UZqOU4yXbBa+Xg+0LbP031NB9gvf1d/ALvHLGCsCf3WEVttNoW/wc30jn1w==}
 
   '@types/react@19.0.10':
     resolution: {integrity: sha512-JuRQ9KXLEjaUNjTWpzuR231Z2WpIwczOkBEIvbHNCzQefFIT0L8IqE6NV6ULLyC1SI/i234JnDoMkfg+RjQj2g==}
@@ -1925,6 +1934,15 @@ snapshots:
   '@types/react-dom@19.0.4(@types/react@19.0.10)':
     dependencies:
       '@types/react': 19.0.10
+
+  '@types/react-icon-base@2.1.6':
+    dependencies:
+      '@types/react': 19.0.10
+
+  '@types/react-icons@2.2.7':
+    dependencies:
+      '@types/react': 19.0.10
+      '@types/react-icon-base': 2.1.6
 
   '@types/react@19.0.10':
     dependencies:
