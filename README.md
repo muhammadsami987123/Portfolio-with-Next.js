@@ -1,41 +1,67 @@
-# Muhammad Sami - Portfolio Website
+# Muhammad Sami Asghar Mughal — Portfolio Website
 
 ## Overview
-Welcome to my personal portfolio website! This project serves as a comprehensive showcase of my skills, experience, and projects as a full-stack web developer. Built with cutting-edge web technologies, it demonstrates my ability to create responsive, performant, and visually appealing web applications that deliver exceptional user experiences.
+This is my personal portfolio, showcasing my work as an AI Agent Engineer and Full‑Stack Developer. It highlights intelligent automation, offline and cloud‑enabled AI assistants, and scalable web platforms. The UI is fully responsive, performant, and accessible across all screen sizes.
 
 ## Live Demo
 Check out the live version of my portfolio: [https://portfolio-sami-phi.vercel.app/](https://portfolio-sami-phi.vercel.app/)
 
-## Key Features
-- **Responsive Design**: Optimized for all devices and screen sizes
-- **Modern UI**: Built with Tailwind CSS and enhanced with Framer Motion animations
-- **Project Showcase**: Detailed case studies of my work with live demos and GitHub links
-- **Interactive Elements**: Smooth animations and transitions for better user engagement
-- **SEO Optimized**: Built with Next.js for better search engine visibility and performance
-- **Dark Mode**: User-friendly dark/light theme toggle
+## Features & Highlights
+- **Fully Responsive UI**: Polished layouts, grids, and tabs across mobile, tablet, and desktop
+- **Modern Animations**: Framer Motion interactions and micro‑animations
+- **AI Focus**: Summary of 550+ AI agents across conversational AI, data analysis, BI, and workflows
+- **Projects Summary**: 150+ projects delivered; 7+ e‑commerce platforms; 50+ UI projects
+- **Project Cards**: Live demos and GitHub links
+- **SEO & Performance**: Next.js optimizations and best practices
+- **Theming**: Clean dark/light design
 
-## Technologies Used
-- **Frontend**: Next.js, React, TypeScript, Tailwind CSS
-- **Animation**: Framer Motion for smooth interactions
-- **Deployment**: Vercel for seamless CI/CD
-- **Version Control**: Git & GitHub for collaboration and version management
-- **Content Management**: Sanity CMS for dynamic content
+## Tech Stack
+- **Frontend**: Next.js, React, TypeScript, Tailwind CSS, Framer Motion
+- **Backend**: Node.js/Express, Python/Django
+- **Databases/CMS**: PostgreSQL, MySQL, Sanity
+- **AI & Agents**: OpenAI SDK, LangChain, HuggingFace, CrewAI, Chainlit, Streamlit, MCP, RAG
+- **Infra/DevOps**: Vercel, AWS, Docker, CI/CD, n8n
+- **Tooling**: Git, GitHub
 
-## Project Structure
-The project follows a modular component-based architecture, making it maintainable and scalable. Key sections include:
-- **Hero Section**: Introduction with social links and call-to-action
-- **About Section**: Professional background and skills overview
-- **Projects Section**: Detailed showcase of completed projects
-- **Skills Section**: Interactive skill matrix with proficiency levels
-- **Contact Section**: Easy-to-use contact form
+## App Structure (Highlights)
+- **Hero**: Role, tagline, social links (GitHub, LinkedIn, X, Contact)
+- **About**: Story, Experience (Founder – CodePulse Innovations; Intern – CodeAlpha), Education, Skills, AI Journey, Certifications
+- **Projects**: Featured projects, All Projects grid
+- **Skills**: Technical skillset (grouped sections with progress bars)
+- **Contact**: Contact form and direct links
 
 ## Getting Started
-To run this project locally:
+Run locally:
 1. Clone the repository
-2. Install dependencies: `npm install`
-3. Run the development server: `npm run dev`
-4. Open `http://localhost:3000` in your browser
+2. Install dependencies:
+   - npm: `npm install`
+   - pnpm: `pnpm install`
+3. Start dev server:
+   - npm: `npm run dev`
+   - pnpm: `pnpm dev`
+4. Open `http://localhost:3000`
 
-This portfolio represents my commitment to clean code, modern design, and user-centric development. It's not just a showcase of my work, but a testament to my passion for web development and continuous learning.
+Environment variables (optional):
+- Not required for basic demo. Set any API keys if you integrate private AI demos.
+
+Build:
+- `npm run build` (or `pnpm build`) then `npm start` (or `pnpm start`)
+
+## Notable Updates (2025)
+- Role updated to AI Agent Engineer & Full‑Stack Developer
+- Counts updated: 550+ AI agents; 150+ projects; 7+ e‑commerce; 50+ UI
+- Added Certifications tab (Prompt & Context, MCP, Cloud AI, AI Ethics, Full Stack)
+- Added Highlights panels and improved responsive layouts across sections
+- X profile links added in Hero and Footer
+
+## Credits & Contact
+- Author: Muhammad Sami Asghar Mughal
+- Email: m.samiwaseem1234@gmail.com
+- Location: Karachi, Sindh, Pakistan
+- GitHub: https://github.com/muhammadsami987123
+- LinkedIn: https://www.linkedin.com/in/muhammad-sami-3aa6102b8/
+- X: https://x.com/MSAMIWASEEM1
+
+If you like this project, consider starring the repo and reaching out for collaborations.
 
 
