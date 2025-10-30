@@ -132,7 +132,7 @@ export default function Hero() {
                   </svg>
                 </button>
               </Link>
-              <Link href="https://resume--profile.vercel.app/" target="_blank">
+              <Link href="https://muhammad-sami-resume.vercel.app/" target="_blank">
                 <button className="px-8 py-3.5 bg-white dark:bg-slate-800 text-gray-800 dark:text-white font-medium rounded-lg shadow-md hover:shadow-lg border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 focus:ring-4 focus:ring-gray-200 dark:focus:ring-slate-700 focus:outline-none transition-all flex items-center justify-center">
                   <FiFileText className="mr-2" />
                   Download CV

@@ -13,8 +13,8 @@ import {
   FiGlobe, 
   FiAward,
   FiExternalLink,
-  FiLayout,
-  FiTool
+ 
+
 } from 'react-icons/fi';
 
 export default function About() {
