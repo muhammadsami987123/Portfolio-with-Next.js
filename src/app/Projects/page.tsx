@@ -90,7 +90,7 @@ export default function Projects() {
         <section className="mb-12 p-6 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-slate-900 dark:to-slate-800 rounded-xl shadow">
           <h3 className="text-2xl font-bold mb-2 text-blue-700 dark:text-blue-300">AI Agents & OpenAI Projects</h3>
           <p className="text-gray-700 dark:text-gray-300 mb-2">
-            Built 20+ AI agents using OpenAI SDK, LangChain, HuggingFace, CrewAI, Chainlit, and Streamlit. Most are private drafts (see GitHub/LinkedIn for details).
+            Built 550+ AI agents using OpenAI SDK, LangChain, HuggingFace, CrewAI, Chainlit, and Streamlit. Most are private drafts (see GitHub/LinkedIn for details).
           </p>
           <ul className="list-disc pl-6 text-gray-700 dark:text-gray-300">
             <li>Conversational AI</li>

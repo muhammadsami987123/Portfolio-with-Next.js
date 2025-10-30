@@ -9,9 +9,9 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="text-lg font-bold mb-4">Your Name</h3>
+            <h3 className="text-lg font-bold mb-4">Muhammad Sami Asghar Mughal</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
-              A passionate full-stack developer focused on creating exceptional digital experiences.
+              AI Agent Engineer & Full-Stack Developer – Architecting intelligent automation and scalable web platforms.
             </p>
             <div className="flex space-x-4">
               <a 
@@ -31,9 +31,10 @@ export default function Footer() {
                 <FiLinkedin size={20} />
               </a>
               <a 
-                href="https://twitter.com/MSAMIWASEEM1" 
+                href="https://x.com/MSAMIWASEEM1" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                aria-label="X"
                 className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
               >
                 <FiTwitter size={20} />
@@ -73,10 +74,10 @@ export default function Footer() {
               Email: m.samiwaseem1234@gmail.com
             </p>
             <p className="text-gray-600 dark:text-gray-300 mb-2">
-              Phone: +92 3102256203
+              Phone: +92 347 7286878
             </p>
             <p className="text-gray-600 dark:text-gray-300">
-              Location: Karachi,Sindh,Pakistan
+              Location: Karachi, Sindh, Pakistan
             </p>
           </div>
         </div>

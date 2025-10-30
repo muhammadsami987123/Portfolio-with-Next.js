@@ -8,7 +8,7 @@ import Image from 'next/image';
 
 export default function Hero() {
   const [scrollY, setScrollY] = useState(0);
-  const [orbitAngle, setOrbitAngle] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   // Update scroll position for parallax effect
   useEffect(() => {
@@ -19,12 +19,7 @@ export default function Hero() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setOrbitAngle((prev) => (prev + 0.5) % 360);
-    }, 16); // ~60fps
-    return () => clearInterval(interval);
-  }, []);
+  // orbitAngle interval removed — no orbiting bubbles currently
 
   // Text animation variants
   const sentence = {
@@ -55,20 +50,12 @@ export default function Hero() {
   const socialLinks = [
     { icon: <FiGithub size={20} />, url: 'https://github.com/muhammadsami987123', label: 'GitHub' },
     { icon: <FiLinkedin size={20} />, url: 'https://www.linkedin.com/in/muhammad-sami-3aa6102b8/', label: 'LinkedIn' },
-    { icon: <FiTwitter size={20} />, url: 'https://twitter.com/MSAMIWASEEM1', label: 'Twitter' },
+    { icon: <FiTwitter size={20} />, url: 'https://x.com/MSAMIWASEEM1', label: 'X' },
     { icon: <FiMail size={20} />, url: '#contact', label: 'Contact' },
   ];
 
   // Define your top skills for orbiting bubbles
-  const orbitSkills = [
-    { label: 'Full Stack Developer', color: 'bg-blue-600' },
-    { label: 'AI Engineer', color: 'bg-indigo-500' },
-    { label: 'Python Expert', color: 'bg-purple-600' },
-    { label: 'Next.js Specialist', color: 'bg-blue-500' },
-    { label: 'React Pro', color: 'bg-indigo-400' },
-    { label: 'LLM Developer', color: 'bg-purple-500' },
-    { label: 'OpenAI SDK Specialist', color: 'bg-gradient-to-r from-blue-500 to-purple-500 text-white' },
-  ];
+  // orbitSkills removed — orbiting skill bubbles have been disabled
 
   return (
     <section className="relative min-h-screen py-15 flex items-center overflow-hidden">
@@ -114,13 +101,13 @@ export default function Hero() {
                   </motion.span>
                 </span>
                 <span className="block mt-2 text-lg sm:text-2xl lg:text-3xl font-semibold text-blue-700 dark:text-blue-300">
-                  AI Engineer • Full Stack Developer • Client Acquisition Specialist
+                  AI Agent Engineer • Full-Stack Developer • Intelligent Automation
                 </span>
               </motion.h1>
               
               <motion.div variants={taglineAnimation} initial="hidden" animate="visible" className="relative">
                 <motion.p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-lg relative z-10 pb-1">
-                  Innovating with AI & Automation • Architecting intelligent agents and high-impact web apps • Proven success with OpenAI SDK, LangChain, Next.js, and more.
+                  Architecting intelligent agents and scalable digital solutions with OpenAI SDK, LangChain, Next.js, Python, and n8n.
                 </motion.p>
                 <motion.div
                   className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-500 dark:to-purple-500"
@@ -224,44 +211,30 @@ export default function Hero() {
               
               {/* Profile image with orbiting skill bubbles outside the image */}
               <div className="relative z-10 w-72 h-72 sm:w-80 sm:h-80 rounded-2xl overflow-visible flex items-center justify-center">
-                {orbitSkills.map((bubble, i) => {
-                  const total = orbitSkills.length;
-                  const baseAngle = (360 / total) * i;
-                  const angle = (baseAngle + orbitAngle) % 360;
-                  const rad = (angle * Math.PI) / 180;
-                  const imageRadius = 140; // slightly larger than image half-width/height
-                  const bubbleRadius = 60; // distance from image edge to bubble center
-                  const orbitRadius = imageRadius + bubbleRadius; // keep bubbles outside image
-                  const x = Math.cos(rad) * orbitRadius;
-                  const y = Math.sin(rad) * orbitRadius;
-                  return (
-                    <div
-                      key={bubble.label}
-                      className={`absolute px-3 py-1 rounded-full text-xs font-semibold shadow-lg ${bubble.color} ${bubble.color.includes('gradient') ? '' : 'text-white'}`}
-                      style={{
-                        left: `calc(50% + ${x}px)`,
-                        top: `calc(50% + ${y}px)`,
-                        transform: 'translate(-50%, -50%)',
-                        zIndex: y > 0 ? 3 : 1,
-                        pointerEvents: 'none',
-                        transition: 'z-index 0.2s',
-                      }}
-                    >
-                      {bubble.label}
-                    </div>
-                  );
-                })}
-                <div className="relative w-72 h-72 sm:w-80 sm:h-80 rounded-2xl overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl bg-white dark:bg-slate-800">
-                  <Image
-                    src="/profile.png"
-                    alt="Muhammad Sami"
-                    fill
-                    className="object-cover rounded-2xl"
-                    priority
-                  />
-                  {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-600/30 to-transparent mix-blend-overlay rounded-2xl"></div>
-                </div>
+                {/* Improved profile image UI: gradient ring, hover motion, and loading skeleton */}
+                <motion.div
+                  whileHover={{ scale: 1.03, rotate: -1 }}
+                  transition={{ type: 'spring', stiffness: 200 }}
+                  className="relative rounded-3xl p-1 bg-gradient-to-r from-blue-500 to-purple-600 shadow-2xl"
+                >
+                  {/* Skeleton shown until imageLoaded is true */}
+                  {!imageLoaded && (
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 animate-pulse" />
+                  )}
+
+                  <div className={`relative w-72 h-72 sm:w-80 sm:h-80 rounded-2xl overflow-hidden border-4 border-white dark:border-slate-800 bg-white dark:bg-slate-800 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}>
+                    <Image
+                      src="/image.png"
+                      alt="Muhammad Sami"
+                      fill
+                      className="object-cover rounded-3xl"
+                      priority
+                      onLoadingComplete={() => setImageLoaded(true)}
+                    />
+                    {/* Overlay gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-blue-600/30 to-transparent mix-blend-overlay rounded-2xl pointer-events-none"></div>
+                  </div>
+                </motion.div>
               </div>
             </motion.div>
           </motion.div>

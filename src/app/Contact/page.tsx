@@ -67,8 +67,8 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="font-bold text-base sm:text-lg">Email</h4>
-                <a href="mailto:m.samiwaseem1234@gmail.com" className="text-blue-600 dark:text-blue-400 hover:underline text-sm sm:text-base">
-                  m.samiwaseem1234@gmail.com
+              <a href="mailto:m.samiwaseem1234@gmail.com" className="text-blue-600 dark:text-blue-400 hover:underline text-sm sm:text-base">
+              m.samiwaseem1234@gmail.com
                 </a>
               </div>
             </div>
@@ -79,8 +79,8 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="font-bold text-base sm:text-lg">Phone</h4>
-                <a href="tel:+1234567890" className="text-blue-600 dark:text-blue-400 hover:underline text-sm sm:text-base">
-                  +92 3477286878
+                <a href="tel:+923477286878" className="text-blue-600 dark:text-blue-400 hover:underline text-sm sm:text-base">
+                  +92 347 7286878
                 </a>
               </div>
             </div>
