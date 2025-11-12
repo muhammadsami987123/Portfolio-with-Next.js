@@ -542,11 +542,12 @@ export default function About() {
                 {/* Profile Image */}
                 <div className="relative mx-auto -mt-12 w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-lg">
                   <Image
-                    src="/image.png"
+                    src="/profile1.png"
                     alt="Muhammad Sami"
                     fill
                     sizes="(max-width: 768px) 96px, 112px"
                     className="object-cover"
+                    onLoad={() => console.log('Image loaded')}
                     priority
                   />
                 </div>

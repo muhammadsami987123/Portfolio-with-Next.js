@@ -224,12 +224,12 @@ export default function Hero() {
 
                   <div className={`relative w-72 h-72 sm:w-80 sm:h-80 rounded-2xl overflow-hidden border-4 border-white dark:border-slate-800 bg-white dark:bg-slate-800 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}>
                     <Image
-                      src="/image.png"
+                      src="/profile1.png"
                       alt="Muhammad Sami"
                       fill
                       className="object-cover rounded-3xl"
                       priority
-                      onLoadingComplete={() => setImageLoaded(true)}
+                      onLoad={() => setImageLoaded(true)}
                     />
                     {/* Overlay gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-blue-600/30 to-transparent mix-blend-overlay rounded-2xl pointer-events-none"></div>
