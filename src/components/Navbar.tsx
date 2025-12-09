@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { FiMenu, FiX } from 'react-icons/fi';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
@@ -13,103 +13,113 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  } );
+  }, []);
+
+  const navLinks = [
+    { href: '/About', label: 'About' },
+    { href: '/Projects', label: 'Projects' },
+    { href: '/Skills', label: 'Skills' },
+    { href: '/Contact', label: 'Contact' },
+  ];
 
   return (
-    <header className={`fixed w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg shadow-lg' : 'bg-transparent'
-    }`}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex justify-between items-center py-4 md:py-6">
-          <div className="flex items-center">
-            <Link href="/" className="text-2xl font-extrabold bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-500 bg-clip-text text-transparent tracking-tight select-none">
-              Muhammad Sami
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || isOpen ? 'glass py-3' : 'bg-transparent py-5'
+          }`}
+      >
+        <div className="container-width">
+          <nav className="flex items-center justify-between">
+            {/* Logo */}
+            <Link href="/" className="group flex items-center gap-2">
+              <div className="w-8 h-8 rounded-lg bg-zinc-900 dark:bg-white flex items-center justify-center text-white dark:text-black font-bold text-lg shadow-lg group-hover:scale-105 transition-transform">
+                M
+              </div>
+              <span className="font-bold text-lg tracking-tight text-zinc-900 dark:text-white group-hover:opacity-80 transition-opacity">
+                Muhammad Sami
+              </span>
             </Link>
-          </div>
 
-          {/* Desktop navigation */}
-          <nav className="hidden md:flex space-x-2 items-center">
-            {[
-              { href: '/About', label: 'About' },
-              { href: '/Projects', label: 'Projects' },
-              { href: '/Skills', label: 'Skills' },
-            ].map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`relative px-3 py-1 font-medium transition-all duration-200
-                  ${pathname === link.href ? 'text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-200'}
-                  group`}
-                aria-current={pathname === link.href ? 'page' : undefined}
-              >
-                {link.label}
-                <span
-                  className={`absolute left-0 -bottom-0.5 w-full h-0.5 rounded bg-gradient-to-r from-blue-600 to-purple-500 transition-all duration-300
-                    ${pathname === link.href ? 'opacity-100' : 'opacity-0 group-hover:opacity-80'}`}
-                />
-              </Link>
-            ))}
-            <Link
-              href="/Contact"
-              className="ml-4 px-5 py-2 rounded-lg font-semibold bg-gradient-to-r from-blue-600 to-purple-500 text-white shadow-lg hover:from-blue-700 hover:to-purple-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all"
-            >
-              Contact
-            </Link>
-          </nav>
+            {/* Desktop Nav */}
+            <div className="hidden md:flex items-center gap-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${pathname === link.href
+                    ? 'bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white'
+                    : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800/50'
+                    }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <div className="ml-4 pl-4 border-l border-zinc-200 dark:border-zinc-800">
+                <a
+                  href="https://github.com/muhammadsami987123"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary text-sm px-4 py-2 bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200 text-white rounded-full transition-all"
+                >
+                  GitHub
+                </a>
+              </div>
+            </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+            {/* Mobile Toggle */}
             <button
+              className="md:hidden p-2 text-gray-600 dark:text-gray-300 hover:bg-black/5 dark:hover:bg-white/10 rounded-lg transition-colors"
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-md focus:outline-none"
-              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-label="Toggle menu"
             >
               {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
             </button>
-          </div>
+          </nav>
         </div>
-      </div>
+      </header>
 
-      {/* Mobile menu */}
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.2 }}
-          className="md:hidden bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg shadow-2xl"
-        >
-          <div className="px-4 py-3 space-y-1">
-            {[
-              { href: '/About', label: 'About' },
-              { href: '/Projects', label: 'Projects' },
-              { href: '/Skills', label: 'Skills' },
-              { href: '/Contact', label: 'Contact' },
-            ].map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`block py-2 px-4 rounded font-medium transition-all duration-200
-                  ${pathname === link.href ? 'bg-gradient-to-r from-blue-600 to-purple-500 text-white' : 'hover:bg-gray-100 dark:hover:bg-slate-800'}`}
-                onClick={() => setIsOpen(false)}
-                aria-current={pathname === link.href ? 'page' : undefined}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        </motion.div>
-      )}
-    </header>
-    
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="fixed top-[60px] left-0 right-0 z-40 bg-white/95 dark:bg-black/95 backdrop-blur-xl border-b border-zinc-200 dark:border-zinc-800 md:hidden overflow-hidden"
+          >
+            <div className="container-width py-6 flex flex-col gap-2">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`px-4 py-3 rounded-lg text-lg font-medium transition-colors ${pathname === link.href
+                    ? 'bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white'
+                    : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800/50'
+                    }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800 px-4">
+                <a
+                  href="https://github.com/muhammadsami987123"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary w-full flex justify-center py-3"
+                >
+                  Visit GitHub
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

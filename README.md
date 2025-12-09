@@ -78,6 +78,7 @@ npm start
 
 ## 🔄 Notable Updates (2025)
 
+* **🤖 100 Days of AI Agents Challenge** – Completed intensive journey building 550+ AI agents using Python, TypeScript, OpenAI, LangChain, CrewAI, and more ([View Repository](https://github.com/muhammadsami987123/100DaysOfAI-Agents))
 * Updated role: **AI Agent Engineer & Full-Stack Developer**
 * Added **Certifications tab** (Prompt & Context, MCP, Cloud AI, AI Ethics, Full Stack)
 * Expanded stats: 550+ AI agents, 150+ projects, 7+ e-commerce apps, 50+ UI builds

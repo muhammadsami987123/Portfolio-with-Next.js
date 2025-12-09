@@ -2,263 +2,159 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FiArrowDown, FiGithub, FiLinkedin, FiTwitter, FiMail, FiFileText } from 'react-icons/fi';
+import { FiArrowRight, FiGithub, FiLinkedin, FiTwitter, FiMail, FiDownload, FiCheck } from 'react-icons/fi';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Hero() {
-  const [scrollY, setScrollY] = useState(0);
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  // Update scroll position for parallax effect
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    setMounted(true);
   }, []);
 
-  // orbitAngle interval removed — no orbiting bubbles currently
-
-  // Text animation variants
-  const sentence = {
-    hidden: { opacity: 1 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delay: 0.5,
-        staggerChildren: 0.08,
-      },
-    },
-  };
-
-  // New animation for the tagline
-  const taglineAnimation = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 1.2,
-        ease: 'easeOut',
-      },
-    },
-  };
-
-  // Social media links
   const socialLinks = [
-    { icon: <FiGithub size={20} />, url: 'https://github.com/muhammadsami987123', label: 'GitHub' },
-    { icon: <FiLinkedin size={20} />, url: 'https://www.linkedin.com/in/muhammad-sami-3aa6102b8/', label: 'LinkedIn' },
-    { icon: <FiTwitter size={20} />, url: 'https://x.com/MSAMIWASEEM1', label: 'X' },
-    { icon: <FiMail size={20} />, url: '#contact', label: 'Contact' },
+    { icon: <FiGithub size={22} />, url: 'https://github.com/muhammadsami987123', label: 'GitHub' },
+    { icon: <FiLinkedin size={22} />, url: 'https://www.linkedin.com/in/muhammad-sami-3aa6102b8/', label: 'LinkedIn' },
+    { icon: <FiTwitter size={22} />, url: 'https://x.com/MSAMIWASEEM1', label: 'X' },
+    { icon: <FiMail size={22} />, url: '#contact', label: 'Contact' },
   ];
 
-  // Define your top skills for orbiting bubbles
-  // orbitSkills removed — orbiting skill bubbles have been disabled
+  if (!mounted) return null;
 
   return (
-    <section className="relative min-h-screen py-15 flex items-center overflow-hidden">
-      {/* Gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-gray-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-800 z-0"></div>
-      
-      {/* Grid pattern overlay with parallax effect */}
-      <div
-        className="absolute inset-0 bg-[url('/your-pattern.png')] bg-center bg-repeat bg-fixed [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] dark:[mask-image:linear-gradient(180deg,rgba(255,255,255,0.1),rgba(255,255,255,0))] opacity-10 z-10"
-        style={{ transform: `translateY(${scrollY * 0.1}px)` }}
-      ></div>
-      
-      {/* Decorative particles/blobs */}
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-200 dark:bg-blue-900/30 rounded-full blur-3xl opacity-40 animate-blob z-10"></div>
-      <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-purple-200 dark:bg-purple-900/30 rounded-full blur-3xl opacity-30 animate-blob animation-delay-2000 z-10"></div>
-      <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-pink-200 dark:bg-indigo-900/30 rounded-full blur-3xl opacity-20 animate-blob animation-delay-4000 z-10"></div>
-      
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Text Content - Left column */}
+    <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-white dark:bg-black transition-colors duration-300">
+
+      {/* Background Elements */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {/* Dot Pattern */}
+        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] dark:bg-[radial-gradient(#333_1px,transparent_1px)] opacity-60"></div>
+
+        {/* Gradients */}
+        <div className="absolute top-0 inset-x-0 h-64 bg-gradient-to-b from-white via-white/80 to-transparent dark:from-black dark:via-black/80 dark:to-transparent"></div>
+        <div className="absolute -top-[300px] left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-blue-500/10 dark:bg-blue-600/10 blur-[120px] rounded-full mix-blend-multiply dark:mix-blend-screen"></div>
+        <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-purple-500/10 dark:bg-purple-600/10 blur-[120px] rounded-full mix-blend-multiply dark:mix-blend-screen"></div>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8 min-h-[calc(100vh-80px)] lg:min-h-screen pt-32 lg:pt-36 pb-12">
+
+          {/* Text Content */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="flex flex-col order-2 lg:order-1"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="flex-1 max-w-2xl lg:text-left text-center"
           >
+            {/* Status Badge */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="space-y-6"
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm mb-4"
             >
-              <motion.h1
-                variants={sentence}
-                initial="hidden"
-                animate="visible"
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight"
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+              </span>
+              <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300">Available for new projects</span>
+            </motion.div>
+
+            <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-zinc-900 dark:text-white mb-5 leading-[1.1]">
+              Engineering Intelligence, <br className="hidden sm:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-400 dark:via-indigo-400 dark:to-purple-400">
+                Designing Experiences.
+              </span>
+            </h1>
+
+            <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 mb-6 leading-relaxed max-w-lg mx-auto lg:mx-0">
+              Meet <span className="font-semibold text-zinc-900 dark:text-white">Muhammad Sami</span>, your next AI & Full Stack Innovator.
+              Building the Future with Intelligence & Code.
+            </p>
+
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start mb-8">
+              <Link href="#projects" className="w-full sm:w-auto">
+                <button className="w-full sm:w-auto h-12 px-8 bg-zinc-900 dark:bg-white text-white dark:text-black font-semibold rounded-full hover:bg-zinc-800 dark:hover:bg-zinc-100 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-zinc-900/10 dark:shadow-white/10">
+                  View Projects
+                  <FiArrowRight />
+                </button>
+              </Link>
+
+              <a
+                href="https://muhammad-sami-resume.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto"
               >
-                <span className="block">
-                  Hi, I am{' '}
-                  <motion.span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-500 dark:to-purple-500">
-                    Muhammad Sami
-                  </motion.span>
-                </span>
-                <span className="block mt-2 text-lg sm:text-2xl lg:text-3xl font-semibold text-blue-700 dark:text-blue-300">
-                  AI Agent Engineer • Full-Stack Developer • Intelligent Automation
-                </span>
-              </motion.h1>
-              
-              <motion.div variants={taglineAnimation} initial="hidden" animate="visible" className="relative">
-                <motion.p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-lg relative z-10 pb-1">
-                  Architecting intelligent agents and scalable digital solutions with OpenAI SDK, LangChain, Next.js, Python, and n8n.
-                </motion.p>
-                <motion.div
-                  className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-500 dark:to-purple-500"
-                  initial={{ width: 0 }}
-                  animate={{ width: '100%' }}
-                  transition={{ duration: 1.5, delay: 1 }}
-                ></motion.div>
-              </motion.div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1 }}
-              className="mt-8 flex flex-col sm:flex-row gap-4"
-            >
-              <Link href="#projects">
-                <button className="px-8 py-3.5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-medium rounded-lg shadow-lg shadow-blue-500/20 hover:shadow-blue-600/30 focus:ring-4 focus:ring-blue-500/50 focus:outline-none transition-all group flex items-center justify-center">
-                  View My Work
-                  <svg className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
+                <button className="w-full sm:w-auto h-12 px-8 bg-transparent text-zinc-900 dark:text-white font-medium border border-zinc-200 dark:border-zinc-700 rounded-full hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-600 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2">
+                  <FiDownload /> Resume
                 </button>
-              </Link>
-              <Link href="https://muhammad-sami-resume.vercel.app/" target="_blank">
-                <button className="px-8 py-3.5 bg-white dark:bg-slate-800 text-gray-800 dark:text-white font-medium rounded-lg shadow-md hover:shadow-lg border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 focus:ring-4 focus:ring-gray-200 dark:focus:ring-slate-700 focus:outline-none transition-all flex items-center justify-center">
-                  <FiFileText className="mr-2" />
-                  Download CV
-                </button>
-              </Link>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.2 }}
-              className="mt-8"
-            >
-              <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-3">Connect with me</p>
-              <div className="flex items-center space-x-4">
-                {socialLinks.map((link, index) => (
-                  <motion.a
+              </a>
+            </div>
+
+            {/* Tech Stack / Socials */}
+            <div className="flex items-center gap-8 justify-center lg:justify-start border-t border-zinc-100 dark:border-zinc-800 pt-6">
+              <div className="flex gap-4">
+                {socialLinks.map((link) => (
+                  <a
                     key={link.label}
                     href={link.url}
-                    target={link.url.startsWith('http') ? '_blank' : undefined}
-                    rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="p-2.5 bg-white dark:bg-slate-800 text-gray-800 dark:text-white rounded-lg shadow hover:shadow-md border border-gray-200 dark:border-slate-700 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-600 dark:hover:border-blue-500 transition-all"
-                    aria-label={link.label}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: 1.3 + index * 0.1 }}
-                    whileHover={{ y: -5 }}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors transform hover:-translate-y-1 duration-200"
                   >
                     {link.icon}
-                  </motion.a>
+                  </a>
                 ))}
               </div>
-            </motion.div>
+            </div>
           </motion.div>
-          
-          {/* Image - Right column */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="order-1 lg:order-2 flex justify-center lg:justify-end"
-          >
-            <motion.div
-              className="relative"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{
-                type: 'spring',
-                stiffness: 100,
-                duration: 0.8,
-              }}
-            >
-              {/* Animated border blob */}
-              <motion.div
-                className="absolute inset-0 rounded-3xl"
-                animate={{
-                  borderRadius: [
-                    '30% 70% 70% 30% / 30% 30% 70% 70%',
-                    '70% 30% 30% 70% / 70% 70% 30% 30%',
-                    '30% 70% 70% 30% / 30% 30% 70% 70%',
-                  ],
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  repeatType: 'reverse',
-                }}
-                style={{
-                  background: 'linear-gradient(45deg, #3B82F6, #8B5CF6)',
-                  transform: 'scale(1.05)',
-                  filter: 'blur(10px)',
-                  opacity: 0.7,
-                  zIndex: -1,
-                }}
-              />
-              
-              {/* Profile image with orbiting skill bubbles outside the image */}
-              <div className="relative z-10 w-72 h-72 sm:w-80 sm:h-80 rounded-2xl overflow-visible flex items-center justify-center">
-                {/* Improved profile image UI: gradient ring, hover motion, and loading skeleton */}
-                <motion.div
-                  whileHover={{ scale: 1.03, rotate: -1 }}
-                  transition={{ type: 'spring', stiffness: 200 }}
-                  className="relative rounded-3xl p-1 bg-gradient-to-r from-blue-500 to-purple-600 shadow-2xl"
-                >
-                  {/* Skeleton shown until imageLoaded is true */}
-                  {!imageLoaded && (
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 animate-pulse" />
-                  )}
 
-                  <div className={`relative w-72 h-72 sm:w-80 sm:h-80 rounded-2xl overflow-hidden border-4 border-white dark:border-slate-800 bg-white dark:bg-slate-800 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}>
-                    <Image
-                      src="/profile1.png"
-                      alt="Muhammad Sami"
-                      fill
-                      className="object-cover rounded-3xl"
-                      priority
-                      onLoad={() => setImageLoaded(true)}
-                    />
-                    {/* Overlay gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-blue-600/30 to-transparent mix-blend-overlay rounded-2xl pointer-events-none"></div>
+          {/* Visual Side */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ delay: 0.2, duration: 0.8, type: "spring", bounce: 0.4 }}
+            className="flex-1 relative w-full max-w-[500px] flex justify-center lg:justify-end"
+          >
+            <div className="relative group">
+              {/* Card Glow */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-[2rem] opacity-30 blur-2xl group-hover:opacity-50 transition-opacity duration-500"></div>
+
+              {/* Main Image Container */}
+              <div className="relative bg-white dark:bg-zinc-900 rounded-[2rem] p-3 shadow-2xl border border-white/20 dark:border-zinc-800">
+                <div className="relative overflow-hidden rounded-[1.5rem] aspect-[4/5] w-[260px] sm:w-[300px] lg:w-[340px] bg-gradient-to-b from-gray-100 to-white dark:from-zinc-800 dark:to-zinc-900">
+                  <Image
+                    src="/profile1.png"
+                    alt="Muhammad Sami Profile"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    priority
+                  />
+
+                  {/* Glass Info Card */}
+                  <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-white/10 dark:bg-black/40 backdrop-blur-md border border-white/20 text-white">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-xs font-medium text-blue-200 uppercase tracking-wider mb-1">Specialization</p>
+                        <p className="font-bold text-lg leading-tight">AI Engineering</p>
+                        <p className="text-sm text-gray-200 mt-0.5">Full Stack Dev</p>
+                      </div>
+                      <div className="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center">
+                        <FiCheck className="text-white" size={20} />
+                      </div>
+                    </div>
                   </div>
-                </motion.div>
+                </div>
               </div>
-            </motion.div>
+
+
+
+            </div>
           </motion.div>
         </div>
       </div>
-      
-      {/* Scroll down indicator */}
-      <motion.div
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, duration: 0.5 }}
-      >
-        <Link href="#about">
-          <motion.button
-            className="p-3 rounded-full bg-white dark:bg-slate-800 text-gray-800 dark:text-white shadow-md hover:shadow-lg border border-gray-100 dark:border-slate-700 hover:border-blue-200 dark:hover:border-blue-800 transition-all"
-            whileHover={{ y: 5 }}
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            <FiArrowDown size={20} />
-          </motion.button>
-        </Link>
-      </motion.div>
     </section>
   );
 }
