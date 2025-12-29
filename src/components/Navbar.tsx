@@ -35,14 +35,19 @@ export default function Navbar() {
       >
         <div className="container-width">
           <nav className="flex items-center justify-between">
-            {/* Logo */}
-            <Link href="/" className="group flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-zinc-900 dark:bg-white flex items-center justify-center text-white dark:text-black font-bold text-lg shadow-lg group-hover:scale-105 transition-transform">
-                M
+            <Link href="/" className="group flex items-center gap-3">
+              <div className="relative w-10 h-10 flex items-center justify-center">
+                <div className="absolute inset-0 bg-zinc-900 dark:bg-white rotate-45 rounded-sm transition-transform group-hover:rotate-[135deg] duration-500 shadow-lg"></div>
+                <span className="relative z-10 text-white dark:text-black font-bold text-base">M</span>
               </div>
-              <span className="font-bold text-lg tracking-tight text-zinc-900 dark:text-white group-hover:opacity-80 transition-opacity">
-                Muhammad Sami
-              </span>
+              <div className="flex flex-col -gap-1">
+                <span className="font-bold text-lg tracking-tight text-zinc-900 dark:text-white leading-none">
+                  Muhammad Sami
+                </span>
+                <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Engineer
+                </span>
+              </div>
             </Link>
 
             {/* Desktop Nav */}

@@ -22,11 +22,18 @@ export default function Footer() {
       <div className="container-width">
         <div className="flex flex-col md:flex-row justify-between items-start gap-10 md:gap-4 mb-12">
 
-          {/* Brand & Description */}
           <div className="max-w-sm">
-            <h3 className="font-bold text-xl mb-4 tracking-tight">Muhammad Sami</h3>
+            <Link href="/" className="group flex items-center gap-3 mb-6">
+              <div className="relative w-10 h-10 flex items-center justify-center">
+                <div className="absolute inset-0 bg-zinc-900 dark:bg-white rotate-45 rounded-sm transition-transform group-hover:rotate-[135deg] duration-500 shadow-lg"></div>
+                <span className="relative z-10 text-white dark:text-black font-bold text-base">M</span>
+              </div>
+              <span className="font-bold text-2xl tracking-tight text-zinc-900 dark:text-white">
+                Muhammad Sami
+              </span>
+            </Link>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
-              AI Agent Engineer & Full-Stack Developer. Building the future of intelligent automation and scalable web systems.
+              AI Agent Engineer & Full-Stack Developer. Building the future of intelligent automation and sophisticated web systems.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => (

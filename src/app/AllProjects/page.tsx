@@ -1,235 +1,277 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { FiGithub } from 'react-icons/fi';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiGithub, FiExternalLink, FiSearch } from 'react-icons/fi';
 import Image from 'next/image';
+import Background from '@/components/Background';
 
-// Sample project data - replace with your own projects
 const projects = [
   {
     id: 0,
-    title: '🤖 100 Days of AI Agents',
-    description: 'A 100-day journey building AI-powered agents using Python, TypeScript, and LLMs to automate real-world tasks. Built 550+ diverse AI agents including conversational AI, data analysis bots, workflow automation agents, and advanced LLM integrations using OpenAI SDK, LangChain, HuggingFace, CrewAI, Chainlit, and Streamlit.',
-    tags: ['Python', 'TypeScript', 'OpenAI', 'LangChain', 'GPT', 'AI Agents', 'LLM', 'Automation', 'HuggingFace', 'CrewAI'],
+    title: '100 Days of AI Agents',
+    description: 'An intensive technical journey architecting 550+ autonomous AI entities. Focused on multi-agent orchestration, contextual memory, and real-world utility frameworks using OpenAI, LangChain, and CrewAI.',
+    tags: ['AI Agents', 'LLM', 'Python', 'LangChain', 'CrewAI', 'Automation'],
     imageUrl: '/project-ai-agents.png',
     liveUrl: 'https://github.com/muhammadsami987123/100DaysOfAI-Agents',
     githubUrl: 'https://github.com/muhammadsami987123/100DaysOfAI-Agents',
+    category: 'AI & Automation'
   },
   {
     id: 1,
     title: 'Furniture E-Commerce Platform',
-    description: 'A full-featured e-commerce platform with product management, cart functionality, and payment processing.',
-    tags: ['React', 'Node.js', 'next.js', 'sanity', 'Stripe', 'tailwind', 'shipengin'],
+    description: 'High-performance commerce solution with advanced product management, secure payment orchestration, and automated shipping logic.',
+    tags: ['Next.js', 'Sanity', 'Stripe', 'Tailwind', 'ShipEngine'],
     imageUrl: '/projext1.png',
     liveUrl: 'https://hackthone-two.vercel.app/',
     githubUrl: 'https://github.com/muhammadsami987123/Marketplace-Hackathon-2025.git',
+    category: 'Full Stack'
   },
   {
     id: 2,
-    title: 'Blog Website',
-    description: 'A modern blog platform with rich text editing, user authentication, and content management features.',
-    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Sanity', 'Markdown'],
+    title: 'AI-Powered Blog Platform',
+    description: 'Modern content ecosystem featuring rich-text capabilities, dynamic SEO optimization, and a headless architectural backend.',
+    tags: ['Next.js', 'TypeScript', 'Tailwind', 'Sanity', 'Markdown'],
     imageUrl: '/project3.png',
     liveUrl: 'https://blogwebsite-gray.vercel.app/',
     githubUrl: 'https://github.com/muhammadsami987123/Blog-website',
+    category: 'Full Stack'
   },
   {
     id: 7,
-    title: 'Admin Dashboard',
-    description: 'A responsive admin dashboard e-commerce website with user management, analytics, and product management features.',
-    tags: ['React', 'Node.js', 'next.js', 'sanity', 'Tailwind CSS'],
+    title: 'Enterprise Admin Dashboard',
+    description: 'Sophisticated dashboard interface for real-time analytics, inventory management, and multi-tenant user orchestration.',
+    tags: ['React', 'Node.js', 'Next.js', 'Sanity', 'Tailwind'],
     imageUrl: '/project16.png',
     liveUrl: 'https://ecommerceadmindashboard-puce.vercel.app/',
+    category: 'Systems'
   },
   {
     id: 6,
-    title: 'ChatBot',
-    description: 'A chatbot application that provides automated responses to user queries, with a customizable interface and conversation history.',
-    tags: ['React', 'Node.js', "Next.js", 'Tailwind CSS', 'Chat Engine API'],
+    title: 'Intelligent Chat Interface',
+    description: 'Neural communication bridge featuring context-aware responses, real-time sync, and customizable logic nodes.',
+    tags: ['Next.js', 'Node.js', 'Socket.io', 'Chat Engine'],
     imageUrl: '/project8.png',
     liveUrl: 'https://chat-bot-using-next-js.vercel.app/',
     githubUrl: 'https://github.com/muhammadsami987123/ChatBot-using-next.js',
+    category: 'AI & Automation'
   },
   {
     id: 3,
-    title: 'Electronics E-Commerce Platform',
-    description: 'A complete online marketplace for buying all types of electronic items, from smartphones to home appliances, with advanced search and filtering capabilities.',
-    tags: ['React', 'Node.js', 'sanity', 'Stripe', 'Tailwind CSS', 'Search API'],
+    title: 'Electronics Tech Marketplace',
+    description: 'Comprehensive online marketplace with advanced search algorithms, secure checkout, and real-time inventory tracking.',
+    tags: ['React', 'Sanity', 'Stripe', 'Full Stack'],
     imageUrl: '/project2.png',
     liveUrl: 'https://e-commerce--exclusive.vercel.app/',
     githubUrl: 'https://github.com/muhammadsami987123/Electronic-E-Commerce.git',
+    category: 'Full Stack'
   },
   {
     id: 4,
-    title: 'Todo Application',
-    description: 'A full-featured todo app with task management, due dates, priority levels, and filtering options.',
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Local Storage', 'next.js'],
+    title: 'Productivity Logic System',
+    description: 'Advanced task management application with local storage persistence, priority filtering, and reactive UI states.',
+    tags: ['TypeScript', 'Next.js', 'Local Storage', 'Tailwind'],
     imageUrl: '/project5.png',
     liveUrl: 'https://todo-app2-rho.vercel.app/',
     githubUrl: 'https://github.com/muhammadsami987123/Todo-app.git',
-  },
-  {
-    id: 14,
-    title: 'Personal Portfolio',
-    description: 'A professional portfolio website showcasing projects, skills, and contact information.',
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Next.js'],
-    imageUrl: '/project14.png',
-    liveUrl: 'https://iqra-portfoilo.vercel.app/',
-    githubUrl: 'https://github.com/muhammadsami987123/portfolio-for-iqra',
+    category: 'Utility'
   },
   {
     id: 5,
-    title: 'Resume Builder',
-    description: 'A modern resume builder application with customizable templates, real-time preview, and PDF export functionality.',
-    tags: ['Html', 'TypeScript', 'Tailwind CSS', 'PDF Generation'],
+    title: 'Dynamic Resume Architect',
+    description: 'Professional resume generation tool with real-time PDF synthesis and customizable logic-driven templates.',
+    tags: ['TypeScript', 'Tailwind', 'PDF Synth', 'Next.js'],
     imageUrl: '/project6.png',
     liveUrl: 'https://resme-builder-milestone-05.vercel.app/',
     githubUrl: 'https://github.com/muhammadsami987123/Resme-Builder-Milestone-5.git',
+    category: 'Utility'
   },
   {
     id: 16,
-    title: 'PaneClounds Website',
-    description: 'A professional website for a cloud hosting business showcasing products, services, and contact information.',
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Next.js'],
+    title: 'PaneClouds Infrastructure',
+    description: 'Digital presence for cloud-native hosting solutions, architected for high-performance service delivery.',
+    tags: ['Next.js', 'Framer Motion', 'Cloud Arch'],
     imageUrl: '/project15.png',
     liveUrl: 'https://paneclounds.vercel.app/',
     githubUrl: 'https://github.com/muhammadsami987123/Pana-CLoud',
-  },
-
-  {
-    id: 7,
-    title: 'Baker Website',
-    description: 'A professional website for a bakery business showcasing products, services, and contact information.',
-    tags: ['CSS', 'Responsive Design', 'Image Gallery', 'Contact Form', 'Html', 'TypeScript'],
-    imageUrl: '/project7.png',
-    liveUrl: 'https://bakerwebsite-rose.vercel.app/',
-    githubUrl: 'https://github.com/muhammadsami987123/Baker-Website.git',
-  },
-  {
-    id: 8,
-    title: 'Personal Library Manager',
-    description: 'A web application for managing a personal library collection, with book search, sorting, and filtering features.',
-    tags: ["Python", 'Streamlit', 'Google Books API'],
-    imageUrl: '/project9.png',
-    liveUrl: 'https://library--manager.streamlit.app/',
-    githubUrl: '',
-  },
-  {
-    id: 9,
-    title: 'Password Security Analyzer',
-    description: 'A tool for analyzing the security of passwords, with features for checking strength, complexity, and common vulnerabilities.',
-    tags: ['Python', 'Tkinter', 'steamlit'],
-    imageUrl: '/project10.png',
-    liveUrl: 'https://password--strength.streamlit.app/',
-    githubUrl: '',
+    category: 'Systems'
   },
   {
     id: 10,
-    title: 'Pro Unit Converter',
-    description: 'A comprehensive unit conversion tool with support for length, weight, volume, temperature, and other common units.',
-    tags: ['Python', 'Tkinter', 'steamlit'],
+    title: 'Pro Unit Logic Converter',
+    description: 'Precision measurement conversion tool built with high-accuracy algorithmic logic.',
+    tags: ['Python', 'Streamlit', 'UI Logic'],
     imageUrl: '/project11.png',
     liveUrl: 'https://unit--convertor.streamlit.app/',
-    githubUrl: '',
+    category: 'Utility'
   },
   {
     id: 11,
-    title: 'Data Sweeper',
-    description: 'A data cleaning and analysis tool for processing large datasets, with features for filtering, sorting, and exporting data.',
-    tags: ['Python', 'Pandas', 'Numpy', 'Tkinter', 'steamlit'],
+    title: 'Data Sweeper & Intelligence',
+    description: 'Advanced data cleaning and processing suite for handling large-scale neural datasets.',
+    tags: ['Python', 'Pandas', 'Numpy', 'Data Science'],
     imageUrl: '/project12.png',
     liveUrl: 'https://data-sweeper-app2.streamlit.app/',
-    githubUrl: '',
-  },
-  {
-    id: 12,
-    title: 'BMI Calculator',
-    description: 'A simple body mass index calculator that calculates BMI based on user input for weight and height.',
-    tags: ['Python', 'Tkinter', 'steamlit'],
-    imageUrl: '/project13.png',
-    liveUrl: 'https://bmi-calculator-web.streamlit.app/',
-    githubUrl: '',
-  },
+    category: 'AI & Automation'
+  }
 ];
 
-export default function AllProjects() {
-  return (
-    <section id="all-projects" className="relative min-h-screen py-20 lg:py-28 overflow-hidden bg-white dark:bg-black transition-colors duration-300">
-      {/* Background Elements */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        {/* Dot Pattern */}
-        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] dark:bg-[radial-gradient(#333_1px,transparent_1px)] opacity-60"></div>
-        {/* Gradients */}
-        <div className="absolute top-0 inset-x-0 h-64 bg-gradient-to-b from-white via-white/80 to-transparent dark:from-black dark:via-black/80 dark:to-transparent"></div>
-      </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
-        <motion.h2
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl font-bold text-center text-zinc-900 dark:text-white mb-8 md:mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          All Projects
-        </motion.h2>
+const categories = ['All', 'AI & Automation', 'Full Stack', 'Systems', 'Utility'];
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              className="bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden shadow-lg border border-zinc-100 dark:border-zinc-800 hover:shadow-2xl transition-all duration-300 group"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <div className="relative h-48 w-full">
-                <Image
-                  src={project.imageUrl}
-                  alt={project.title}
-                  fill
-                  className="object-cover"
-                  loading='lazy'
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-zinc-900 dark:text-white">{project.title}</h3>
-                <p className="text-zinc-600 dark:text-zinc-400 mb-4">
-                  {project.description}
-                </p>
-                <div className="flex space-x-4">
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-blue-600 dark:text-blue-400 hover:underline"
-                  >
-                    Live Demo
-                  </a>
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-blue-600 dark:text-blue-400 hover:underline"
-                  >
-                    <FiGithub className="mr-1" /> GitHub
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+export default function AllProjects() {
+  const [activeCategory, setActiveCategory] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredProjects = projects.filter(project => {
+    const matchesCategory = activeCategory === 'All' || project.category === activeCategory;
+    const matchesSearch = project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      project.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
+    return matchesCategory && matchesSearch;
+  });
+
+  return (
+    <Background className="py-24 lg:py-32">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-20 space-y-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-[10px] tracking-widest uppercase"
+          >
+            Digital Archive
+          </motion.div>
+          <motion.h2
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-900 dark:text-white tracking-tight"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+          >
+            The Project <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Repository.</span>
+          </motion.h2>
+          <motion.p
+            className="text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto text-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            A full documentation of my technological output, ranging from autonomous AI agents to enterprise-grade web architectures.
+          </motion.p>
         </div>
-        <div className="text-center mt-12">
+
+        {/* Search and Filters */}
+        <div className="mb-16 space-y-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="relative w-full md:max-w-md group">
+              <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400 group-focus-within:text-blue-500 transition-colors" />
+              <input
+                type="text"
+                placeholder="Search by title or tech stack..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full h-14 pl-12 pr-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 focus:border-blue-500 dark:focus:border-blue-500/50 outline-none transition-all text-sm font-medium"
+              />
+            </div>
+            <div className="flex flex-wrap justify-center gap-2">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all uppercase tracking-widest ${activeCategory === cat
+                      ? 'bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 shadow-lg'
+                      : 'bg-zinc-100/50 dark:bg-zinc-800/50 text-zinc-500 hover:text-zinc-900 dark:hover:text-white'
+                    }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Projects Grid */}
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          <AnimatePresence>
+            {filteredProjects.map((project) => (
+              <motion.div
+                layout
+                key={project.id}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.3 }}
+                className="group flex flex-col bg-white dark:bg-zinc-900/50 rounded-3xl border border-zinc-100 dark:border-zinc-800 overflow-hidden hover:shadow-2xl hover:shadow-blue-500/5 transition-all duration-500"
+              >
+                <div className="aspect-video relative bg-zinc-100 dark:bg-zinc-800 overflow-hidden">
+                  <Image
+                    src={project.imageUrl}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading='lazy'
+                  />
+                  <div className="absolute top-4 right-4 py-1 px-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg text-[9px] font-black uppercase tracking-widest text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                    {project.category}
+                  </div>
+                </div>
+
+                <div className="p-8 space-y-4 flex-1 flex flex-col">
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-bold text-zinc-900 dark:text-white">{project.title}</h3>
+                    <p className="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed line-clamp-3">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="px-3 py-1 bg-zinc-50 dark:bg-zinc-800/50 text-zinc-500 dark:text-zinc-400 text-[9px] font-bold uppercase tracking-wider rounded-lg border border-zinc-100 dark:border-zinc-700/50">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex gap-6 pt-6 mt-auto">
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-[10px] font-black tracking-widest text-blue-600 dark:text-blue-400 hover:text-blue-700 transition-colors uppercase"
+                    >
+                      <FiExternalLink /> Live Demo
+                    </a>
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-[10px] font-black tracking-widest text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors uppercase"
+                      >
+                        <FiGithub /> Source
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+        {/* Global Footer Call */}
+        <div className="text-center mt-24 pt-16 border-t border-zinc-100 dark:border-zinc-900">
+          <p className="text-zinc-500 text-sm mb-6 uppercase tracking-[0.3em] font-bold">Deep Dive into Source</p>
           <a
             href="https://github.com/muhammadsami987123"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-2xl hover:scale-105 active:scale-95 transition-all shadow-xl"
           >
-            <FiGithub className="mr-2" /> See more on GitHub
+            <FiGithub className="text-xl" /> Access Complete GitHub Archive
           </a>
         </div>
       </div>
-    </section>
+    </Background>
   );
-} 
+}

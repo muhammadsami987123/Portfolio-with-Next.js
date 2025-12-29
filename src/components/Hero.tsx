@@ -1,108 +1,161 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { FiArrowRight, FiGithub, FiLinkedin, FiTwitter, FiMail, FiDownload, FiCheck } from 'react-icons/fi';
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { FiArrowRight, FiGithub, FiLinkedin, FiTwitter, FiMail, FiDownload, FiGlobe } from 'react-icons/fi';
 import Link from 'next/link';
 import Image from 'next/image';
+import Background from './Background';
+
+const roles = [
+  "AI Agent Engineer",
+  "Full Stack Developer",
+  "Automation Specialist",
+  "System Architect"
+];
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
+  const [roleIndex, setRoleIndex] = useState(0);
+
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const springConfig = { damping: 25, stiffness: 150 };
+  const rotateX = useSpring(useTransform(mouseY, [-300, 300], [8, -8]), springConfig);
+  const rotateY = useSpring(useTransform(mouseX, [-300, 300], [-8, 8]), springConfig);
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+    const interval = setInterval(() => {
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+    }, 3000);
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      mouseX.set(e.clientX - centerX);
+      mouseY.set(e.clientY - centerY);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, [mouseX, mouseY]);
 
   const socialLinks = [
-    { icon: <FiGithub size={22} />, url: 'https://github.com/muhammadsami987123', label: 'GitHub' },
-    { icon: <FiLinkedin size={22} />, url: 'https://www.linkedin.com/in/muhammad-sami-3aa6102b8/', label: 'LinkedIn' },
-    { icon: <FiTwitter size={22} />, url: 'https://x.com/MSAMIWASEEM1', label: 'X' },
-    { icon: <FiMail size={22} />, url: '#contact', label: 'Contact' },
+    { icon: <FiGithub size={20} />, url: 'https://github.com/muhammadsami987123', label: 'GitHub' },
+    { icon: <FiLinkedin size={20} />, url: 'https://www.linkedin.com/in/muhammad-sami-3aa6102b8/', label: 'LinkedIn' },
+    { icon: <FiTwitter size={20} />, url: 'https://x.com/MSAMIWASEEM1', label: 'X' },
+    { icon: <FiMail size={20} />, url: '#contact', label: 'Email' },
   ];
 
   if (!mounted) return null;
 
   return (
-    <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-white dark:bg-black transition-colors duration-300">
+    <Background
+      showExtraGradients
+      className="lg:h-screen min-h-[700px] flex items-center justify-center overflow-hidden pt-16"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
 
-      {/* Background Elements */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        {/* Dot Pattern */}
-        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] dark:bg-[radial-gradient(#333_1px,transparent_1px)] opacity-60"></div>
-
-        {/* Gradients */}
-        <div className="absolute top-0 inset-x-0 h-64 bg-gradient-to-b from-white via-white/80 to-transparent dark:from-black dark:via-black/80 dark:to-transparent"></div>
-        <div className="absolute -top-[300px] left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-blue-500/10 dark:bg-blue-600/10 blur-[120px] rounded-full mix-blend-multiply dark:mix-blend-screen"></div>
-        <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-purple-500/10 dark:bg-purple-600/10 blur-[120px] rounded-full mix-blend-multiply dark:mix-blend-screen"></div>
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8 min-h-[calc(100vh-80px)] lg:min-h-screen pt-32 lg:pt-36 pb-12">
-
-          {/* Text Content */}
+          {/* Text Content Area */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="flex-1 max-w-2xl lg:text-left text-center"
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex-1 max-w-2xl lg:text-left text-center z-10 py-8"
           >
             {/* Status Badge */}
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm mb-4"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.3 }}
+              className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-blue-50/30 dark:bg-blue-900/10 border border-blue-100/30 dark:border-blue-500/10 mb-6"
             >
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+              <div className="relative flex h-1.5 w-1.5">
+                <div className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></div>
+                <div className="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-500"></div>
+              </div>
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">
+                Next-Gen AI Ready
               </span>
-              <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300">Available for new projects</span>
             </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-zinc-900 dark:text-white mb-5 leading-[1.1]">
-              Engineering Intelligence, <br className="hidden sm:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-400 dark:via-indigo-400 dark:to-purple-400">
-                Designing Experiences.
-              </span>
-            </h1>
-
-            <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 mb-6 leading-relaxed max-w-lg mx-auto lg:mx-0">
-              Meet <span className="font-semibold text-zinc-900 dark:text-white">Muhammad Sami</span>, your next AI & Full Stack Innovator.
-              Building the Future with Intelligence & Code.
-            </p>
-
-            {/* Buttons */}
-            <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start mb-8">
-              <Link href="#projects" className="w-full sm:w-auto">
-                <button className="w-full sm:w-auto h-12 px-8 bg-zinc-900 dark:bg-white text-white dark:text-black font-semibold rounded-full hover:bg-zinc-800 dark:hover:bg-zinc-100 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-zinc-900/10 dark:shadow-white/10">
-                  View Projects
-                  <FiArrowRight />
-                </button>
-              </Link>
-
-              <a
-                href="https://muhammad-sami-resume.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto"
-              >
-                <button className="w-full sm:w-auto h-12 px-8 bg-transparent text-zinc-900 dark:text-white font-medium border border-zinc-200 dark:border-zinc-700 rounded-full hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-600 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2">
-                  <FiDownload /> Resume
-                </button>
-              </a>
+            <div className="space-y-1 mb-4">
+              <h2 className="text-zinc-500 dark:text-zinc-400 text-xs lg:text-sm font-bold uppercase tracking-widest">
+                Hi, I&apos;m
+              </h2>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-zinc-900 dark:text-white leading-[1.1]">
+                Muhammad <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Sami</span>
+              </h1>
             </div>
 
-            {/* Tech Stack / Socials */}
-            <div className="flex items-center gap-8 justify-center lg:justify-start border-t border-zinc-100 dark:border-zinc-800 pt-6">
-              <div className="flex gap-4">
+            {/* Role Display */}
+            <div className="h-12 flex justify-center lg:justify-start items-center mb-6">
+              <span className="text-lg sm:text-xl lg:text-2xl font-bold text-zinc-500 dark:text-zinc-500 mr-3">
+                Architecting
+              </span>
+              <div className="relative">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={roles[roleIndex]}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="text-lg sm:text-xl lg:text-2xl font-bold text-zinc-900 dark:text-white"
+                  >
+                    {roles[roleIndex]}
+                    <motion.span
+                      animate={{ opacity: [1, 0, 1] }}
+                      transition={{ duration: 1, repeat: Infinity }}
+                      className="inline-block w-[3px] h-[20px] lg:h-[24px] bg-blue-600 dark:bg-blue-400 ml-2 mb-[-1px]"
+                    />
+                  </motion.span>
+                </AnimatePresence>
+              </div>
+            </div>
+
+            <p className="text-sm sm:text-base lg:text-lg text-zinc-500 dark:text-zinc-400 mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
+              Specialized in engineering <span className="font-bold text-zinc-900 dark:text-white">Autonomous AI Systems</span> and architecting high-frequency <span className="font-bold text-zinc-900 dark:text-white">Full Stack Architectures</span>.
+            </p>
+
+            {/* Actions */}
+            <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start mb-10">
+              <Link href="#projects" className="w-full sm:w-auto">
+                <button className="w-full sm:w-auto h-12 lg:h-14 px-8 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-2xl hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl flex items-center justify-center gap-3">
+                  Pulse Repository <FiArrowRight size={18} />
+                </button>
+              </Link>
+              <div className="flex gap-3 w-full sm:w-auto">
+                <a href="https://muhammad-sami-resume.vercel.app/" target="_blank" className="flex-1 sm:flex-none">
+                  <button className="w-full h-12 lg:h-14 px-5 border-2 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 font-bold rounded-2xl hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all flex items-center justify-center gap-2 text-xs">
+                    <FiGlobe /> Web CV
+                  </button>
+                </a>
+                <a href="/resume.pdf" target="_blank" className="flex-1 sm:flex-none">
+                  <button className="w-full h-12 lg:h-14 px-5 border-2 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 font-bold rounded-2xl hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all flex items-center justify-center gap-2 text-xs">
+                    <FiDownload /> Get PDF
+                  </button>
+                </a>
+              </div>
+            </div>
+
+            {/* Social Bar */}
+            <div className="flex items-center gap-6 justify-center lg:justify-start pt-6 border-t border-zinc-100 dark:border-zinc-900">
+              <span className="text-[10px] font-black text-zinc-400 dark:text-zinc-500 uppercase tracking-[0.4em]">Synapse</span>
+              <div className="flex gap-2">
                 {socialLinks.map((link) => (
                   <a
                     key={link.label}
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors transform hover:-translate-y-1 duration-200"
+                    className="p-2 text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all hover:scale-125"
+                    aria-label={link.label}
                   >
                     {link.icon}
                   </a>
@@ -111,50 +164,38 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Visual Side */}
+          {/* Visual Profile Side */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ delay: 0.2, duration: 0.8, type: "spring", bounce: 0.4 }}
-            className="flex-1 relative w-full max-w-[500px] flex justify-center lg:justify-end"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="flex-1 w-full max-w-[380px] lg:flex justify-end hidden lg:block"
+            style={{ rotateX, rotateY, perspective: 1000 }}
           >
             <div className="relative group">
-              {/* Card Glow */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-[2rem] opacity-30 blur-2xl group-hover:opacity-50 transition-opacity duration-500"></div>
+              <div className="absolute -inset-8 bg-blue-600/10 rounded-full blur-[80px] animate-pulse"></div>
 
-              {/* Main Image Container */}
-              <div className="relative bg-white dark:bg-zinc-900 rounded-[2rem] p-3 shadow-2xl border border-white/20 dark:border-zinc-800">
-                <div className="relative overflow-hidden rounded-[1.5rem] aspect-[4/5] w-[260px] sm:w-[300px] lg:w-[340px] bg-gradient-to-b from-gray-100 to-white dark:from-zinc-800 dark:to-zinc-900">
+              <div className="relative bg-white dark:bg-zinc-900 rounded-[2.5rem] p-2 border border-zinc-100 shadow-2xl dark:border-zinc-800/80">
+                <div className="relative aspect-[4/5] w-[260px] xl:w-[300px] rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-800">
                   <Image
                     src="/profile1.png"
-                    alt="Muhammad Sami Profile"
+                    alt="Muhammad Sami"
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="object-cover transition-transform duration-1000 group-hover:scale-105"
                     priority
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/60 via-transparent to-transparent"></div>
 
-                  {/* Glass Info Card */}
-                  <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-white/10 dark:bg-black/40 backdrop-blur-md border border-white/20 text-white">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="text-xs font-medium text-blue-200 uppercase tracking-wider mb-1">Specialization</p>
-                        <p className="font-bold text-lg leading-tight">AI Engineering</p>
-                        <p className="text-sm text-gray-200 mt-0.5">Full Stack Dev</p>
-                      </div>
-                      <div className="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center">
-                        <FiCheck className="text-white" size={20} />
-                      </div>
-                    </div>
+                  <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-white/10 dark:bg-black/30 backdrop-blur-xl border border-white/20">
+                    <p className="text-[8px] font-bold text-blue-300 uppercase tracking-widest mb-1">Architecture Node</p>
+                    <p className="text-white font-bold text-[10px] tracking-tight">Active Engagement Mode</p>
                   </div>
                 </div>
               </div>
-
-
-
             </div>
           </motion.div>
         </div>
       </div>
-    </section>
+    </Background>
   );
 }
