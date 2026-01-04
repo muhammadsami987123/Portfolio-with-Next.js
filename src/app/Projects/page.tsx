@@ -78,7 +78,7 @@ export default function Projects() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-[10px] tracking-widest uppercase mb-4"
           >
-            Portfolio Showcase
+            Full Stack Ecosystem
           </motion.div>
           <motion.h2
             className="text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-6 tracking-tight"
@@ -104,7 +104,7 @@ export default function Projects() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-24"
         >
           <div className="relative group overflow-hidden rounded-3xl bg-zinc-900 border border-zinc-800 p-8 lg:p-12">
             <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-blue-600/10 blur-[80px] rounded-full"></div>
@@ -149,7 +149,7 @@ export default function Projects() {
 
         {/* Improved Project Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.slice(0, 6).map((project, index) => (
+          {projects.map((project, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -184,11 +184,11 @@ export default function Projects() {
                 </div>
 
                 <div className="flex gap-6 pt-4 mt-auto">
-                  <a href={project.liveUrl} className="flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 transition-colors">
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 transition-colors">
                     <FiExternalLink /> DEPLOYMENT
                   </a>
                   {project.githubUrl && (
-                    <a href={project.githubUrl} className="flex items-center gap-2 text-xs font-bold text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-bold text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">
                       <FiGithub /> ARCHIVE
                     </a>
                   )}
