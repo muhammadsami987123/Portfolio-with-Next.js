@@ -8,6 +8,7 @@ export interface Project {
     solution: string;
     tags: string[];
     imageUrl: string;
+    videoUrl?: string;
     liveUrl: string;
     githubUrl: string;
     achievement: string;
@@ -20,7 +21,7 @@ export interface Project {
 export const hackathonProjects: Project[] = [
     {
         id: 101,
-        slug: 'physical-ai-robotics-textbook',
+        slug: 'physical-ai-humanoid-robotics-textbook',
         title: 'Physical AI & Humanoid Robotics Textbook',
         description: 'A comprehensive digital textbook platform for Physical AI, featuring integrated RAG Chatbot, ROS 2 simulations, and multilingual support.',
         fullDescription: 'The future of work lies in the partnership between humans, intelligent agents, and robots. This project serves as a pioneering educational platform for "Physical AI"—AI systems that function in reality and comprehend physical laws. Built with standard-setting documentation and interactive learning tools, it bridges the gap between digital intelligence and embodied physical systems.',
@@ -28,6 +29,7 @@ export const hackathonProjects: Project[] = [
         solution: 'Built a unified intelligence portal using Docusaurus and Claude Code, featuring a real-time RAG chatbot that can explain complex ROS 2 concepts and simulate humanoid kinematics directly in the browser.',
         tags: ['Next.js', 'Docusaurus', 'OpenAI', 'RAG', 'ROS 2'],
         imageUrl: '/physical-ai-textbook.png',
+        videoUrl: '/videos/physical-ai-humanoid-robotics-textbook.mp4',
         liveUrl: 'https://frontend-two-psi-45.vercel.app/',
         githubUrl: 'https://github.com/muhammadsami987123/Hackathon-I',
         achievement: '1st Place Submission',
@@ -59,6 +61,7 @@ export const hackathonProjects: Project[] = [
         solution: 'Leveraged Spec-Driven Development with Claude Code to generate mathematically consistent service boundaries, using Kafka for event streaming and Dapr for robust service invocation.',
         tags: ['FastAPI', 'Kubernetes', 'Next.js', 'PostgreSQL', 'Docker'],
         imageUrl: '/cloud-native-todo.png',
+        videoUrl: '/videos/cloud-native-ai-todo-platform.mp4',
         liveUrl: 'https://todo-chi-neon.vercel.app/',
         githubUrl: 'https://github.com/muhammadsami987123/Hackathon-II',
         achievement: 'Hackathon II Winner',
@@ -90,6 +93,7 @@ export const hackathonProjects: Project[] = [
         solution: 'Implemented the "Code Execution with MCP" pattern, allowing the AI to execute Python code in a secure sandbox and verify student submissions against real-world test cases.',
         tags: ['Next.js', 'Claude Code', 'MCP', 'Microservices', 'Kafka'],
         imageUrl: '/learnflow-platform.png',
+        videoUrl: '/videos/learnflow-ai-platform.mp4',
         liveUrl: 'https://ai-native-bot.vercel.app/',
         githubUrl: 'https://github.com/muhammadsami987123/Hackathon-III',
         achievement: 'Hackathon III Winner',
