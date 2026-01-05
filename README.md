@@ -88,6 +88,40 @@ graph LR
 
 ---
 
+## 🏆 Hackathon Victories
+*Technical benchmarks set across the PIAIC ecosystem, recognized for architectural depth and agentic innovation.*
+
+<table width="100%">
+  <tr>
+    <td width="33.33%" align="center" valign="top">
+      <a href="https://muhammad-sami.vercel.app/hackathon/physical-ai-humanoid-robotics-textbook">
+        <img src="public/physical-ai-textbook.png" width="100%" style="border-radius:12px;"/>
+        <br />
+        <b>🥇 Physical AI & Robotics</b>
+      </a>
+      <p><small><b>1st Place Submission</b>. Integrated RAG Chatbot & ROS 2 simulations.</small></p>
+    </td>
+    <td width="33.33%" align="center" valign="top">
+      <a href="https://muhammad-sami.vercel.app/hackathon/cloud-native-ai-todo-platform">
+        <img src="public/cloud-native-todo.png" width="100%" style="border-radius:12px;"/>
+        <br />
+        <b>🏆 Cloud-Native AI Todo</b>
+      </a>
+      <p><small><b>Hackathon II Winner</b>. Kubernetes-managed, event-driven architecture.</small></p>
+    </td>
+    <td width="33.33%" align="center" valign="top">
+      <a href="https://muhammad-sami.vercel.app/hackathon/learnflow-ai-platform">
+        <img src="public/learnflow-platform.png" width="100%" style="border-radius:12px;"/>
+        <br />
+        <b>🎖️ LearnFlow AI Platform</b>
+      </a>
+      <p><small><b>Hackathon III Winner</b>. Agentic infra with MCP code execution.</small></p>
+    </td>
+  </tr>
+</table>
+
+---
+
 ## 📂 Project Showcase Arena
 
 <table width="100%">
