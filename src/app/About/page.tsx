@@ -156,44 +156,82 @@ export default function About() {
       </div>
     ),
     ai: (
-      <div className="space-y-10 animate-in fade-in slide-in-from-bottom-4 duration-500">
-        <div className="space-y-4">
-          <h3 className="text-xl font-bold text-zinc-900 dark:text-white">Pioneering Agentic Infrastructure</h3>
-          <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
-            My work in AI transcends standard LLM integrations. I focus on &quot;Code Execution with MCP&quot;—a paradigm where agents possess the environment to autonomously build, test, and verify their own solutions in secure sandboxes.
-          </p>
+      <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
+        {/* Narrative Header */}
+        <div className="space-y-6">
+          <h3 className="text-2xl font-bold text-zinc-900 dark:text-white tracking-tight">The Evolution of an <span className="text-blue-600">Agentic Mind.</span></h3>
+          <div className="space-y-4 text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed max-w-3xl">
+            <p>
+              My AI journey didn&apos;t start with complex models, but with a fascination for <span className="text-zinc-900 dark:text-white font-bold">meaningful automation</span>. In early 2024, I transitioned from traditional full-stack development to exploring how Large Language Models could do more than just generate text—they could <span className="italic">reason</span> and <span className="italic">act</span>.
+            </p>
+            <p>
+              What began as simple prompt engineering experiments quickly evolved into a deep dive into <span className="text-blue-600 font-bold tracking-tight uppercase text-[10px]">Autonomous Agentic Infrastructure</span>. I realized that the future of software isn&apos;t just code we write, but intelligence that writes and executes code on our behalf.
+            </p>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-100 dark:border-zinc-800/50">
-            <h4 className="text-[10px] font-bold text-blue-600 uppercase tracking-[0.2em] mb-4">Mastered Paradigms</h4>
-            <ul className="space-y-3">
-              {[
-                'Autonomous Multi-Agent Orchestration (CrewAI)',
-                'Model Context Protocol (MCP) Code Execution',
-                'Advanced RAG with Hybrid Semantic Search',
-                'Distributed Agentic Workflows (Kafka/Dapr)',
-                'Vision-Language-Action (VLA) Robotics Planning'
-              ].map(item => (
-                <li key={item} className="text-xs text-zinc-500 dark:text-zinc-400 flex items-center gap-2">
-                  <div className="w-1 h-1 rounded-full bg-blue-500/50" /> {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-100 dark:border-zinc-800/50">
-            <h4 className="text-[10px] font-bold text-purple-600 uppercase tracking-[0.2em] mb-4">Milestone Benchmarks</h4>
-            <div className="space-y-4">
-              <div>
-                <p className="text-sm font-bold text-zinc-900 dark:text-white mb-1">98% Inference Efficiency</p>
-                <p className="text-[10px] text-zinc-500 font-medium">Recorded in LearnFlow Agentic Platform Hackathon.</p>
+        {/* Journey Milestones */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            {
+              phase: "Phase I: The Genesis",
+              title: "Prompt Engineering & Basic Automation",
+              details: "Mastered the art of structured prompting and integrated LLMs into simple web workflows using LangChain and early OpenAI SDKs.",
+              icon: <FiBook className="text-blue-500" />
+            },
+            {
+              phase: "Phase II: The Growth",
+              title: "550+ Agents & Multi-Agent Systems",
+              details: "Engineered hundreds of specialized agents. Focused on orchestration frameworks like CrewAI and AutoGen to solve multi-step industrial problems.",
+              icon: <FiCpu className="text-purple-500" />
+            },
+            {
+              phase: "Phase III: The Frontier",
+              title: "MCP & Distributed Intelligence",
+              details: "Currently mastering Model Context Protocol (MCP) and distributed systems like Kafka to build horizontally scalable AI architectures.",
+              icon: <FiAward className="text-amber-500" />
+            }
+          ].map((item, idx) => (
+            <div key={idx} className="p-6 rounded-3xl bg-zinc-50 dark:bg-zinc-800/30 border border-zinc-100 dark:border-zinc-800 hover:border-blue-500/30 transition-all group">
+              <div className="w-10 h-10 rounded-xl bg-white dark:bg-zinc-800 flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
+                {item.icon}
               </div>
-              <div>
-                <p className="text-sm font-bold text-zinc-900 dark:text-white mb-1">550+ Validated Agents</p>
-                <p className="text-[10px] text-zinc-500 font-medium">Spanning autonomous coding, BI, and robotics.</p>
+              <p className="text-[9px] font-bold text-blue-600 uppercase tracking-[0.2em] mb-2">{item.phase}</p>
+              <h4 className="text-sm font-bold text-zinc-900 dark:text-white mb-3 leading-tight">{item.title}</h4>
+              <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">{item.details}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Quantified Impact */}
+        <div className="relative p-8 rounded-[2.5rem] bg-zinc-900 text-white overflow-hidden group">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 blur-[100px] rounded-full -mr-32 -mt-32 group-hover:bg-blue-600/30 transition-colors" />
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-4">
+              <h4 className="text-xl font-bold tracking-tight">The &quot;100 Days of AI Agents&quot; Milestone</h4>
+              <p className="text-zinc-400 text-sm leading-relaxed">
+                A pivotal chapter in my journey was building the <span className="text-white font-bold">550+ autonomous agents</span>. This wasn&apos;t just a volume play; it was a rigorous exploration of RAG, tool-calling behavior, and the limits of agentic persistence across 150+ diverse industrial projects.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-6">
+              <div className="text-center">
+                <p className="text-4xl font-bold tracking-tighter text-blue-400">150+</p>
+                <p className="text-[10px] uppercase font-bold tracking-widest text-zinc-500 mt-2">Projects Deployed</p>
+              </div>
+              <div className="text-center">
+                <p className="text-4xl font-bold tracking-tighter text-purple-400">98%</p>
+                <p className="text-[10px] uppercase font-bold tracking-widest text-zinc-500 mt-2">Inference Success</p>
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Call to Future */}
+        <div className="flex items-center gap-4 p-6 rounded-2xl bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/20">
+          <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse shrink-0" />
+          <p className="text-xs font-medium text-blue-700 dark:text-blue-300 leading-relaxed">
+            <span className="font-bold uppercase tracking-wider text-[10px]">Where I Stand Today:</span> I am no longer just building tools; I am architecting autonomous ecosystems where intelligence is the primary backbone of the software experience.
+          </p>
         </div>
       </div>
     ),
