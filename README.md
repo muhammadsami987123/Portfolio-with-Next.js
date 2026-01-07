@@ -11,7 +11,8 @@
   <br />
 
   [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/muhammad-sami-3aa6102b8/)
-  [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=flat-square&logo=twitter&logoColor=white)](https://x.com/MSAMIWASEEM1)
+  [![Fiverr](https://img.shields.io/badge/Fiverr-1DBF73?style=flat-square&logo=fiverr&logoColor=white)](https://www.fiverr.com/muhammadsami530)
+  [![Upwork](https://img.shields.io/badge/Upwork-14A800?style=flat-square&logo=upwork&logoColor=white)](https://www.upwork.com/freelancers/~016aef534b50ab5667?mp_source=share)
   [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/muhammadsami987123)
   [![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:m.samiwaseem1234@gmail.com)
 
@@ -194,9 +195,40 @@ Using **Kafka** and **DigitalOcean Kubernetes (DOKS)**, I architect systems that
 ## ⌚ Professional Timeline
 
 - **Founder & Lead Architect** | `CodePulse Innovations` (2025 – Present)
-- **Senior AI Agent Engineer** | `Independent Enterprise Solutions` (2024 – Present)
-- **Full Stack Consultant** | `Diverse Client Ecosystem` (2023 – 2024)
-- **Digital Solutions Developer** | `Freelance Architecture` (2020 – 2022)
+  - *Launched [FolioGenerator.com](https://foliogenerator.com), an AI-driven platform for rapid portfolio synthesis.*
+- **Senior AI Agent Engineer** | `Global Intelligence Solutions` (2024 – Present)
+  - *Spearheading MCP-native agentic suites and RAG-driven automation ecosystems.*
+- **Frontend Development Intern** | `CodeAlpha` (2025)
+  - *Engineered high-performance, responsive UI components for distributed web architectures.*
+- **Full Stack Consultant** | `Independent Enterprise Solutions` (2020 – 2023)
+  - *Architected 10+ e-commerce engines and neural admin dashboards for diverse clients.*
+
+---
+
+## 📜 Certifications & Education
+
+<table width="100%">
+  <tr>
+    <td width="50%" valign="top">
+      <h3>🎓 Academic Journey</h3>
+      <ul>
+        <li><b>GIAIC</b>: Certified Cloud GenAI Engineer (2024-2026)</li>
+        <li><b>PIAIC</b>: Certified Cloud Agentic-AI Engineer (2024-2026)</li>
+        <li><b>Intermediate</b>: Pre-Engineering (2023-2025)</li>
+        <li><b>Matriculation</b>: Science Group (2021-2022)</li>
+      </ul>
+    </td>
+    <td width="50%" valign="top">
+      <h3>🏅 Key Certifications</h3>
+      <ul>
+        <li><b>Hackathon Winner III</b>: Agentic Tutoring Systems</li>
+        <li><b>Hackathon Winner II</b>: Cloud-Native Infrastructure</li>
+        <li><b>Hackathon Winner I</b>: Physical AI Humanoids</li>
+        <li><b>Cloud Excellence</b>: Modern Microservices (PIAIC)</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
 ---
 
