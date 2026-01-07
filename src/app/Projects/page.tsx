@@ -78,7 +78,7 @@ export default function Projects() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-[10px] tracking-widest uppercase mb-4"
           >
-            Full Stack Ecosystem
+            Project Portfolio
           </motion.div>
           <motion.h2
             className="text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-6 tracking-tight"
@@ -86,7 +86,7 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Innovations.</span>
+            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Creations.</span>
           </motion.h2>
           <motion.p
             className="text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto text-lg"
@@ -133,15 +133,15 @@ export default function Projects() {
                 </div>
 
                 <Link href="/AllProjects" className="inline-flex items-center gap-2 px-6 py-3.5 bg-white text-zinc-900 font-bold text-sm rounded-xl hover:bg-zinc-100 transition-all hover:scale-[1.02] active:scale-[0.98]">
-                  Explore Agent Repository <FiArrowRight />
+                  Explore AI Agents <FiArrowRight />
                 </Link>
               </div>
 
               <div className="flex-1 w-full max-w-[320px] aspect-square rounded-2xl bg-zinc-800/30 border border-zinc-700/30 p-6 flex flex-col items-center justify-center text-center relative overflow-hidden group/card scale-90 lg:scale-100">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
                 <FiCpu size={60} className="text-blue-500 mb-6 animate-pulse" />
-                <h4 className="text-xl font-bold text-white mb-2">Neural Orchestration</h4>
-                <p className="text-zinc-500 text-[10px] uppercase font-bold tracking-widest leading-none">Intelligence Management</p>
+                <h4 className="text-xl font-bold text-white mb-2">Technical Mastery</h4>
+                <p className="text-zinc-500 text-[10px] uppercase font-bold tracking-widest leading-none">AI & Architecture</p>
               </div>
             </div>
           </div>
@@ -185,11 +185,11 @@ export default function Projects() {
 
                 <div className="flex gap-6 pt-4 mt-auto">
                   <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 transition-colors">
-                    <FiExternalLink /> DEPLOYMENT
+                    <FiExternalLink /> LIVE DEMO
                   </a>
                   {project.githubUrl && (
                     <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-bold text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">
-                      <FiGithub /> ARCHIVE
+                      <FiGithub /> SOURCE CODE
                     </a>
                   )}
                 </div>
@@ -200,7 +200,7 @@ export default function Projects() {
 
         <div className="text-center mt-16">
           <Link href="/AllProjects" className="inline-flex items-center gap-2 px-6 py-3 border border-zinc-200 dark:border-zinc-800 rounded-xl text-zinc-600 dark:text-zinc-400 text-sm font-bold hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all">
-            Browse Entire Repository <FiArrowRight />
+            View All Projects <FiArrowRight />
           </Link>
         </div>
       </div>

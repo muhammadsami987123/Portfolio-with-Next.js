@@ -81,7 +81,7 @@ export default function Hero() {
                 <div className="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-500"></div>
               </div>
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">
-                Next-Gen AI Ready
+                Available for New Projects
               </span>
             </motion.div>
 
@@ -97,7 +97,7 @@ export default function Hero() {
             {/* Role Display */}
             <div className="h-12 flex justify-center lg:justify-start items-center mb-6">
               <span className="text-lg sm:text-xl lg:text-2xl font-bold text-zinc-500 dark:text-zinc-500 mr-3">
-                Architecting
+                Expert in
               </span>
               <div className="relative">
                 <AnimatePresence mode="wait">
@@ -120,25 +120,25 @@ export default function Hero() {
             </div>
 
             <p className="text-sm sm:text-base lg:text-lg text-zinc-500 dark:text-zinc-400 mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
-              Specialized in engineering <span className="font-bold text-zinc-900 dark:text-white">Autonomous AI Systems</span> and architecting high-frequency <span className="font-bold text-zinc-900 dark:text-white">Full Stack Architectures</span>.
+              Specialized in engineering <span className="font-bold text-zinc-900 dark:text-white">Autonomous AI Systems</span> and architecting scalable <span className="font-bold text-zinc-900 dark:text-white">Full Stack Solutions</span>.
             </p>
 
             {/* Actions */}
             <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start mb-10">
               <Link href="#projects" className="w-full sm:w-auto">
                 <button className="w-full sm:w-auto h-12 lg:h-14 px-8 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-2xl hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl flex items-center justify-center gap-3">
-                  Pulse Repository <FiArrowRight size={18} />
+                  Explore Projects <FiArrowRight size={18} />
                 </button>
               </Link>
               <div className="flex gap-3 w-full sm:w-auto">
                 <a href="https://muhammad-sami-resume.vercel.app/" target="_blank" className="flex-1 sm:flex-none">
                   <button className="w-full h-12 lg:h-14 px-5 border-2 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 font-bold rounded-2xl hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all flex items-center justify-center gap-2 text-xs">
-                    <FiGlobe /> Web CV
+                    <FiGlobe /> Web Resume
                   </button>
                 </a>
                 <a href="/resume.pdf" target="_blank" className="flex-1 sm:flex-none">
                   <button className="w-full h-12 lg:h-14 px-5 border-2 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 font-bold rounded-2xl hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all flex items-center justify-center gap-2 text-xs">
-                    <FiDownload /> Get PDF
+                    <FiDownload /> Resume PDF
                   </button>
                 </a>
               </div>
@@ -146,7 +146,7 @@ export default function Hero() {
 
             {/* Social Bar */}
             <div className="flex items-center gap-6 justify-center lg:justify-start pt-6 border-t border-zinc-100 dark:border-zinc-900">
-              <span className="text-[10px] font-black text-zinc-400 dark:text-zinc-500 uppercase tracking-[0.4em]">Synapse</span>
+              <span className="text-[10px] font-black text-zinc-400 dark:text-zinc-500 uppercase tracking-[0.4em]">Connect</span>
               <div className="flex gap-2">
                 {socialLinks.map((link) => (
                   <a
@@ -187,8 +187,8 @@ export default function Hero() {
                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/60 via-transparent to-transparent"></div>
 
                   <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-white/10 dark:bg-black/30 backdrop-blur-xl border border-white/20">
-                    <p className="text-[8px] font-bold text-blue-300 uppercase tracking-widest mb-1">Architecture Node</p>
-                    <p className="text-white font-bold text-[10px] tracking-tight">Active Engagement Mode</p>
+                    <p className="text-[8px] font-bold text-blue-300 uppercase tracking-widest mb-1">Lead AI Engineer</p>
+                    <p className="text-white font-bold text-[10px] tracking-tight">Open for collaboration</p>
                   </div>
                 </div>
               </div>

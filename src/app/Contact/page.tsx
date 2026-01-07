@@ -38,17 +38,17 @@ export default function Contact() {
   const contactInfo = [
     {
       icon: <FiMail />,
-      label: 'Digital Correspondence',
+      label: 'Email',
       value: 'm.samiwaseem1234@gmail.com',
     },
     {
       icon: <FiPhone />,
-      label: 'Direct Line',
+      label: 'Phone',
       value: '+92 347 7286878',
     },
     {
       icon: <FiMapPin />,
-      label: 'Geographic Base',
+      label: 'Location',
       value: 'Karachi, Sindh, Pakistan',
     },
   ];
@@ -63,7 +63,7 @@ export default function Contact() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-[10px] tracking-widest uppercase mb-4"
           >
-            Communication Nexus
+            Get In Touch
           </motion.div>
           <motion.h2
             className="text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-6 tracking-tight"
@@ -71,10 +71,10 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Initiate <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Sync.</span>
+            Let&apos;s Build Something <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Great.</span>
           </motion.h2>
           <p className="text-zinc-500 dark:text-zinc-400 max-w-xl text-lg leading-relaxed">
-            Interested in deploying advanced AI solutions or orchestrating complex full-stack ecosystems? Lets discuss your roadmap.
+            Have a project in mind or looking for advanced AI solutions? Reach out and let&apos;s discuss how we can bring your ideas to life with state-of-the-art technology.
           </p>
         </div>
 
@@ -101,7 +101,7 @@ export default function Contact() {
             </div>
 
             <div className="pt-10 border-t border-zinc-100 dark:border-zinc-800">
-              <p className="text-[10px] uppercase tracking-widest font-bold text-zinc-400 mb-6">Network Reach</p>
+              <p className="text-[10px] uppercase tracking-widest font-bold text-zinc-400 mb-6">Social Networks</p>
               <div className="flex gap-3">
                 {[
                   { icon: <FiLinkedin />, url: 'https://www.linkedin.com/in/muhammad-sami-3aa6102b8/', label: 'LinkedIn' },
@@ -134,53 +134,53 @@ export default function Contact() {
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                   <div className="space-y-3">
-                    <label className="text-xs font-bold uppercase tracking-widest text-zinc-500 ml-1">Identity</label>
+                    <label className="text-xs font-bold uppercase tracking-widest text-zinc-500 ml-1">Full Name</label>
                     <input
                       type="text"
                       name="name"
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Muhammad Sami"
-                      className="w-full h-14 px-6 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-100 dark:border-zinc-700/50 focus:ring-2 focus:ring-blue-600 transition-all text-sm"
+                      placeholder="Enter your name"
+                      className="w-full h-14 px-6 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-100 dark:border-zinc-700/50 focus:ring-2 focus:ring-blue-600 transition-all text-sm outline-none"
                     />
                   </div>
                   <div className="space-y-3">
-                    <label className="text-xs font-bold uppercase tracking-widest text-zinc-500 ml-1">Signal Address</label>
+                    <label className="text-xs font-bold uppercase tracking-widest text-zinc-500 ml-1">Email Address</label>
                     <input
                       type="email"
                       name="email"
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="sami@nexus.io"
-                      className="w-full h-14 px-6 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-100 dark:border-zinc-700/50 focus:ring-2 focus:ring-blue-600 transition-all text-sm"
+                      placeholder="name@company.com"
+                      className="w-full h-14 px-6 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-100 dark:border-zinc-700/50 focus:ring-2 focus:ring-blue-600 transition-all text-sm outline-none"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-3">
-                  <label className="text-xs font-bold uppercase tracking-widest text-zinc-500 ml-1">Payload / Brief</label>
+                  <label className="text-xs font-bold uppercase tracking-widest text-zinc-500 ml-1">Your Message</label>
                   <textarea
                     name="message"
                     required
                     value={formData.message}
                     onChange={handleChange}
                     rows={5}
-                    placeholder="Provide details on project scope and technical requirements..."
-                    className="w-full px-6 py-5 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-100 dark:border-zinc-700/50 focus:ring-2 focus:ring-blue-600 transition-all text-sm resize-none"
+                    placeholder="Tell me about your project or inquiry..."
+                    className="w-full px-6 py-5 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-100 dark:border-zinc-700/50 focus:ring-2 focus:ring-blue-600 transition-all text-sm resize-none outline-none"
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="w-full h-16 bg-blue-600 text-white font-bold rounded-xl flex items-center justify-center gap-3 hover:bg-blue-700 transition-all disabled:opacity-70 shadow-lg shadow-blue-500/20"
+                  className="w-full h-16 bg-blue-600 text-white font-bold rounded-xl flex items-center justify-center gap-3 hover:bg-blue-700 transition-all disabled:opacity-70 shadow-lg shadow-blue-500/20 group"
                 >
                   {status === 'loading' ? (
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white animate-spin rounded-full"></div>
                   ) : (
-                    <>Transmit Data <FiSend /></>
+                    <>Send Message <FiSend className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" /></>
                   )}
                 </button>
 
@@ -191,7 +191,7 @@ export default function Contact() {
                       animate={{ opacity: 1, y: 0 }}
                       className="p-4 rounded-xl bg-green-500/10 text-green-600 dark:text-green-400 text-center text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2"
                     >
-                      <FiCheckCircle /> Signal Successfully Relayed
+                      <FiCheckCircle /> Message Sent Successfully
                     </motion.div>
                   )}
                 </AnimatePresence>

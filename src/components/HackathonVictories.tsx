@@ -21,7 +21,7 @@ export default function HackathonVictories() {
                         viewport={{ once: true }}
                         className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-600/10 text-blue-600 dark:text-blue-400 font-bold text-xs tracking-widest uppercase mb-4 border border-blue-600/20 shadow-sm"
                     >
-                        <FiAward className="text-blue-500" /> Pioneering Excellence
+                        <FiAward className="text-blue-500" /> Proven Excellence
                     </motion.div>
                     <motion.h2
                         className="text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-6 tracking-tight"
@@ -39,7 +39,7 @@ export default function HackathonVictories() {
                         transition={{ delay: 0.1 }}
                     >
                         Setting the technical benchmark across the PIAIC ecosystem. High-performance systems
-                        recognized for architectural depth, scalability, and agentic innovation.
+                        recognized for architectural depth, scalability, and AI innovation.
                     </motion.p>
                 </div>
 

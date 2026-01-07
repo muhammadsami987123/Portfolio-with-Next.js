@@ -36,7 +36,7 @@ export default function Footer() {
                   Muhammad Sami
                 </span>
                 <span className="text-[10px] uppercase font-bold tracking-[0.3em] text-blue-600 dark:text-blue-400 mt-1">
-                  Agentic Architect
+                  AI & Full-Stack Engineer
                 </span>
               </div>
             </Link>
@@ -48,14 +48,14 @@ export default function Footer() {
             <div className="flex items-center gap-3 py-2 px-4 rounded-full bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100/50 dark:border-blue-900/20 w-fit">
               <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
               <span className="text-[10px] font-bold uppercase tracking-widest text-blue-700 dark:text-blue-300">
-                Available for Global Innovation
+                Available for New Opportunities
               </span>
             </div>
           </div>
 
           {/* Quick Links Column */}
           <div className="lg:col-span-2 space-y-6">
-            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-900 dark:text-white">Exploration</h4>
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-900 dark:text-white">Navigation</h4>
             <ul className="space-y-4">
               {navLinks.map((link) => (
                 <li key={link.href}>
@@ -139,7 +139,7 @@ export default function Footer() {
               © {currentYear} Muhammad Sami
             </p>
             <p className="text-[9px] text-zinc-400 dark:text-zinc-600 font-medium">
-              Designed & Engineered with <span className="text-blue-500/80">Agentic Precision</span>
+              Designed & Engineered with <span className="text-blue-500/80">Passion & Precision</span>
             </p>
           </div>
 

@@ -80,7 +80,7 @@ const skillCategories: Category[] = [
   },
   {
     id: 2,
-    title: 'Agentic Backend',
+    title: 'Intelligent Backend',
     icon: <FiServer />,
     description: 'Engineering resilient server-side architectures and intelligent logic',
     accent: 'from-indigo-600 to-purple-500',
@@ -213,7 +213,7 @@ const SkillCard = ({ skill, index }: { skill: Skill; index: number }) => {
         </div>
         <div className="flex items-center gap-1.5 font-bold">
           <span className="text-[10px] text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-            PRO LEVEL
+            EXPERT
           </span>
           <span className="text-xs text-zinc-900 dark:text-white tracking-tighter">
             {skill.proficiency}%
@@ -329,7 +329,7 @@ export default function Skills() {
               : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
               }`}
           >
-            All Areas
+            All Skills
           </button>
           {skillCategories.map((category) => (
             <button
