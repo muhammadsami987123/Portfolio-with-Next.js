@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://muhammad-sami.vercel.app'),
   title: 'Muhammad Sami | Lead AI Agent Engineer & Full-Stack Architect | GIAIC | PIAIC',
   description: 'Muhammad Sami - GIAIC and PIAIC certified AI Engineer specialized in autonomous AI agents, RAG architectures, and cloud-native systems. 550+ agents engineered, 3/3 national hackathon victories. Expert in OpenAI, LangChain, CrewAI, Next.js, and Python.',
   keywords: ['Muhammad Sami', 'Muhammad Sami GIAIC', 'Muhammad Sami PIAIC', 'GIAIC', 'PIAIC', 'AI Engineer', 'AI Agents', 'LangChain', 'CrewAI', 'OpenAI', 'Full Stack Developer', 'Next.js', 'Python', 'RAG Architecture', 'Multi-Agent Systems', 'Cloud Native', 'Autonomous Agents', 'Machine Learning Engineer', 'Governor Sindh Initiative', 'Presidential Initiative AI'],
