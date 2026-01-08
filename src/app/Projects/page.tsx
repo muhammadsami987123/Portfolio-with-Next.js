@@ -152,9 +152,14 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <Link href="/AllProjects" className="inline-flex items-center gap-2 px-6 py-3.5 bg-white text-zinc-900 font-bold text-sm rounded-xl hover:bg-zinc-100 transition-all hover:scale-[1.02] active:scale-[0.98]">
-                  Explore AI Agents <FiArrowRight />
-                </Link>
+                <div className="flex flex-wrap gap-4">
+                  <Link href="/AllProjects" className="inline-flex items-center gap-2 px-6 py-3.5 bg-white text-zinc-900 font-bold text-sm rounded-xl hover:bg-zinc-100 transition-all hover:scale-[1.02] active:scale-[0.98]">
+                    Explore AI Agents <FiArrowRight />
+                  </Link>
+                  <Link href="/case-study/ai-agents" className="inline-flex items-center gap-2 px-6 py-3.5 bg-blue-600/10 border border-blue-600/20 text-blue-500 font-bold text-sm rounded-xl hover:bg-blue-600/20 transition-all hover:scale-[1.02] active:scale-[0.98]">
+                    View Case Study <FiExternalLink />
+                  </Link>
+                </div>
               </div>
 
               <div className="flex-1 w-full max-w-[320px] aspect-square rounded-2xl bg-zinc-800/30 border border-zinc-700/30 p-6 flex flex-col items-center justify-center text-center relative overflow-hidden group/card scale-90 lg:scale-100">

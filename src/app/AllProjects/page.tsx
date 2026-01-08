@@ -8,6 +8,33 @@ import Background from '@/components/Background';
 
 
 
+import {
+  SiPython, SiTypescript, SiOpenai, SiLangchain, SiReact, SiNextdotjs,
+  SiTailwindcss, SiStripe, SiSanity, SiNodedotjs, SiFastapi, SiPostgresql,
+  SiPandas, SiNumpy, SiSocketdotio, SiFramer, SiAmazon, SiStreamlit
+} from 'react-icons/si';
+
+const iconMap: { [key: string]: React.ReactNode } = {
+  'Python': <SiPython />,
+  'TypeScript': <SiTypescript />,
+  'OpenAI': <SiOpenai />,
+  'LangChain': <SiLangchain />,
+  'React': <SiReact />,
+  'Next.js': <SiNextdotjs />,
+  'Tailwind': <SiTailwindcss />,
+  'Stripe': <SiStripe />,
+  'Sanity': <SiSanity />,
+  'Node.js': <SiNodedotjs />,
+  'FastAPI': <SiFastapi />,
+  'PostgreSQL': <SiPostgresql />,
+  'Pandas': <SiPandas />,
+  'Numpy': <SiNumpy />,
+  'Socket.io': <SiSocketdotio />,
+  'Framer Motion': <SiFramer />,
+  'AWS': <SiAmazon />,
+  'Streamlit': <SiStreamlit />,
+};
+
 const projects = [
   {
     id: 0,
@@ -229,7 +256,8 @@ export default function AllProjects() {
 
                   <div className="flex flex-wrap gap-2 pt-2">
                     {project.tags.map((tag) => (
-                      <span key={tag} className="px-3 py-1 bg-zinc-50 dark:bg-zinc-800/50 text-zinc-500 dark:text-zinc-400 text-[9px] font-bold uppercase tracking-wider rounded-lg border border-zinc-100 dark:border-zinc-700/50">
+                      <span key={tag} className="flex items-center gap-1.5 px-3 py-1 bg-zinc-50 dark:bg-zinc-800/50 text-zinc-500 dark:text-zinc-400 text-[9px] font-bold uppercase tracking-wider rounded-lg border border-zinc-100 dark:border-zinc-700/50 group-hover:text-zinc-900 dark:group-hover:text-white transition-colors">
+                        {iconMap[tag] && <span className="text-[12px]">{iconMap[tag]}</span>}
                         {tag}
                       </span>
                     ))}
