@@ -4,16 +4,24 @@ import Projects from '@/app/Projects/page';
 import Skills from '@/app/Skills/page';
 import Contact from '@/app/Contact/page';
 import HackathonVictories from '@/components/HackathonVictories';
+import Services from '@/components/Services';
+import Testimonials from '@/components/Testimonials';
+import FAQ from '@/components/FAQ';
+import PortfolioAgent from '@/components/PortfolioAgent';
 
 export default function Home() {
   return (
     <main>
       <Hero />
       <About />
+      <Services />
       <HackathonVictories />
       <Projects />
+      <Testimonials />
       <Skills />
+      <FAQ />
       <Contact />
+      <PortfolioAgent />
     </main>
   );
 }

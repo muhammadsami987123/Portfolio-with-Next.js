@@ -1,0 +1,79 @@
+{
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Muhammad Sami",
+    "alternateName": "Muhammad Sami Waseem",
+    "jobTitle": "Lead AI Agent Engineer & Full-Stack Architect",
+    "description": "Specialized in autonomous AI agents, RAG architectures, and cloud-native systems. 550+ agents engineered, 3/3 national hackathon victories.",
+    "url": "https://muhammad-sami.vercel.app",
+    "image": "https://muhammad-sami.vercel.app/profile1.png",
+    "email": "m.samiwaseem1234@gmail.com",
+    "sameAs": [
+        "https://github.com/muhammadsami987123",
+        "https://www.linkedin.com/in/muhammad-sami-3aa6102b8/",
+        "https://twitter.com/MSAMIWASEEM1",
+        "https://www.fiverr.com/muhammadsami530",
+        "https://www.upwork.com/freelancers/~016aef534b50ab5667",
+        "https://muhammad-sami-resume.vercel.app/"
+    ],
+    "alumniOf": [
+        {
+            "@type": "EducationalOrganization",
+            "name": "Governor Sindh Initiative for GenAI, Web3, and Metaverse (GIAIC)",
+            "description": "Certified Cloud Applied Generative AI Engineer"
+        },
+        {
+            "@type": "EducationalOrganization",
+            "name": "Presidential Initiative for Artificial Intelligence and Computing (PIAIC)",
+            "description": "Certified Cloud Applied Agentic-AI Engineer"
+        }
+    ],
+    "knowsAbout": [
+        "Artificial Intelligence",
+        "AI Agents",
+        "LangChain",
+        "CrewAI",
+        "OpenAI",
+        "RAG Architecture",
+        "Multi-Agent Systems",
+        "Full Stack Development",
+        "Next.js",
+        "Python",
+        "Cloud Native Architecture",
+        "GIAIC",
+        "PIAIC"
+    ],
+    "hasCredential": [
+        {
+            "@type": "EducationalOccupationalCredential",
+            "name": "Certified Cloud Applied Generative AI Engineer",
+            "credentialCategory": "certification",
+            "recognizedBy": {
+                "@type": "Organization",
+                "name": "GIAIC"
+            }
+        },
+        {
+            "@type": "EducationalOccupationalCredential",
+            "name": "Certified Cloud Applied Agentic-AI Engineer",
+            "credentialCategory": "certification",
+            "recognizedBy": {
+                "@type": "Organization",
+                "name": "PIAIC"
+            }
+        }
+    ],
+    "award": [
+        "National AI Hackathon Winner - Physical AI Humanoid Robotics",
+        "National AI Hackathon Winner - Cloud-Native AI Platform",
+        "National AI Hackathon Winner - Agentic Tutoring Platform"
+    ],
+    "workExample": [
+        {
+            "@type": "CreativeWork",
+            "name": "100 Days of AI Agents",
+            "description": "550+ autonomous AI agents engineered using OpenAI, LangChain, and CrewAI",
+            "url": "https://github.com/muhammadsami987123/100DaysOfAI-Agents"
+        }
+    ]
+}

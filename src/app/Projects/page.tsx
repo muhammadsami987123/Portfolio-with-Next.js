@@ -2,16 +2,36 @@
 
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiExternalLink, FiGithub, FiCpu } from 'react-icons/fi';
+import {
+  SiPython, SiTypescript, SiOpenai, SiLangchain, SiReact, SiNextdotjs,
+  SiTailwindcss, SiStripe, SiSanity, SiNodedotjs, SiFastapi, SiPostgresql
+} from 'react-icons/si';
 import Image from 'next/image';
 import Link from 'next/link';
 import Background from '@/components/Background';
+
+const iconMap: { [key: string]: React.ReactNode } = {
+  'Python': <SiPython />,
+  'TypeScript': <SiTypescript />,
+  'OpenAI': <SiOpenai />,
+  'LangChain': <SiLangchain />,
+  'React': <SiReact />,
+  'Next.js': <SiNextdotjs />,
+  'Tailwind CSS': <SiTailwindcss />,
+  'Stripe': <SiStripe />,
+  'Sanity CMS': <SiSanity />,
+  'Sanity': <SiSanity />,
+  'Node.js': <SiNodedotjs />,
+  'FastAPI': <SiFastapi />,
+  'PostgreSQL': <SiPostgresql />,
+};
 
 const projects = [
   {
     id: 0,
     title: '100 Days of AI Agents',
     description: 'A professional intensive focused on architecting autonomous AI agents. Developed 550+ diverse agents including conversational AI, business intelligence bots, and workflow orchestrators using OpenAI, LangChain, and CrewAI.',
-    tags: ['Python', 'TypeScript', 'OpenAI', 'LangChain', 'CrewAI', 'Automation'],
+    tags: ['Python', 'TypeScript', 'OpenAI', 'LangChain', 'Automation'],
     imageUrl: '/project-ai-agents.png',
     liveUrl: 'https://github.com/muhammadsami987123/100DaysOfAI-Agents',
     githubUrl: 'https://github.com/muhammadsami987123/100DaysOfAI-Agents',
@@ -34,7 +54,7 @@ const projects = [
     id: 2,
     title: 'AI-Powered Blog Platform',
     description: 'Modern content ecosystem with rich-text capabilities and dynamic content delivery via headless architecture.',
-    tags: ['Next.js', 'TypeScript', 'Sanity', 'Edge Functions'],
+    tags: ['Next.js', 'TypeScript', 'Sanity'],
     imageUrl: '/project3.png',
     liveUrl: 'https://blogwebsite-gray.vercel.app/',
     githubUrl: 'https://github.com/muhammadsami987123/Blog-website',
@@ -43,7 +63,7 @@ const projects = [
     id: 6,
     title: 'Intelligent Chat Interface',
     description: 'Sophisticated chatbot application featuring context-aware responses and real-time communication protocols.',
-    tags: ['React', 'Node.js', 'Chat Engine', 'WebSocket'],
+    tags: ['React', 'Node.js', 'WebSocket'],
     imageUrl: '/project8.png',
     liveUrl: 'https://chat-bot-using-next-js.vercel.app/',
     githubUrl: 'https://github.com/muhammadsami987123/ChatBot-using-next.js',
@@ -52,7 +72,7 @@ const projects = [
     id: 7,
     title: 'Enterprise Admin Center',
     description: 'Comprehensive dashboard solution for real-time analytics, user management, and product orchestration.',
-    tags: ['Next.js', 'Sanity', 'Chart.js', 'Tailwind'],
+    tags: ['Next.js', 'Sanity', 'Chart.js'],
     imageUrl: '/project16.png',
     liveUrl: 'https://ecommerceadmindashboard-puce.vercel.app/',
   },
@@ -177,7 +197,8 @@ export default function Projects() {
 
                 <div className="flex flex-wrap gap-2 pt-2">
                   {project.tags.map((tag) => (
-                    <span key={tag} className="px-3 py-1 bg-zinc-50 dark:bg-zinc-800/50 text-zinc-500 dark:text-zinc-400 text-[10px] font-bold uppercase tracking-wider rounded-lg border border-zinc-100 dark:border-zinc-700/50">
+                    <span key={tag} className="flex items-center gap-1.5 px-3 py-1 bg-zinc-50 dark:bg-zinc-800/50 text-zinc-500 dark:text-zinc-400 text-[10px] font-bold uppercase tracking-wider rounded-lg border border-zinc-100 dark:border-zinc-800/50 transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                      {iconMap[tag] && <span className="text-[12px]">{iconMap[tag]}</span>}
                       {tag}
                     </span>
                   ))}
