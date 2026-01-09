@@ -42,10 +42,70 @@ const services = [
     }
 ];
 
+const getColorClasses = (color: string) => {
+    const colors: { [key: string]: { border: string; iconBg: string; iconText: string; titleHover: string; line: string; glow: string } } = {
+        blue: {
+            border: 'group-hover:border-blue-500/50',
+            iconBg: 'group-hover:bg-blue-600',
+            iconText: 'text-blue-600',
+            titleHover: 'group-hover:text-blue-600',
+            line: 'group-hover:bg-blue-500',
+            glow: 'group-hover:shadow-blue-500/10'
+        },
+        indigo: {
+            border: 'group-hover:border-indigo-500/50',
+            iconBg: 'group-hover:bg-indigo-600',
+            iconText: 'text-indigo-600',
+            titleHover: 'group-hover:text-indigo-600',
+            line: 'group-hover:bg-indigo-500',
+            glow: 'group-hover:shadow-indigo-500/10'
+        },
+        purple: {
+            border: 'group-hover:border-purple-500/50',
+            iconBg: 'group-hover:bg-purple-600',
+            iconText: 'text-purple-600',
+            titleHover: 'group-hover:text-purple-600',
+            line: 'group-hover:bg-purple-500',
+            glow: 'group-hover:shadow-purple-500/10'
+        },
+        amber: {
+            border: 'group-hover:border-amber-500/50',
+            iconBg: 'group-hover:bg-amber-600',
+            iconText: 'text-amber-600',
+            titleHover: 'group-hover:text-amber-600',
+            line: 'group-hover:bg-amber-500',
+            glow: 'group-hover:shadow-amber-500/10'
+        },
+        cyan: {
+            border: 'group-hover:border-cyan-500/50',
+            iconBg: 'group-hover:bg-cyan-600',
+            iconText: 'text-cyan-600',
+            titleHover: 'group-hover:text-cyan-600',
+            line: 'group-hover:bg-cyan-500',
+            glow: 'group-hover:shadow-cyan-500/10'
+        },
+        rose: {
+            border: 'group-hover:border-rose-500/50',
+            iconBg: 'group-hover:bg-rose-600',
+            iconText: 'text-rose-600',
+            titleHover: 'group-hover:text-rose-600',
+            line: 'group-hover:bg-rose-500',
+            glow: 'group-hover:shadow-rose-500/10'
+        }
+    };
+    return colors[color] || colors.blue;
+};
+
 export default function Services() {
     return (
-        <section className="py-24 relative overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-24 relative overflow-hidden bg-white/50 dark:bg-zinc-900/50">
+            {/* Background Elements */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
+                <div className="absolute top-[20%] right-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[100px]" />
+                <div className="absolute bottom-[20%] left-0 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[100px]" />
+            </div>
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-center mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
@@ -74,34 +134,39 @@ export default function Services() {
                     </motion.p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {services.map((service, index) => (
-                        <motion.div
-                            key={service.title}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
-                            className="group relative p-8 rounded-[2rem] bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800 hover:border-blue-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/5"
-                        >
-                            <div className={`w-14 h-14 rounded-2xl bg-white dark:bg-zinc-800 flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 text-blue-600`}>
-                                {service.icon}
-                            </div>
-                            <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-4 group-hover:text-blue-600 transition-colors">
-                                {service.title}
-                            </h3>
-                            <p className="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed">
-                                {service.description}
-                            </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                    {services.map((service, index) => {
+                        const style = getColorClasses(service.color);
 
-                            <div className="mt-8 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-zinc-400 group-hover:text-blue-500 transition-colors">
-                                <div className="w-8 h-[1px] bg-zinc-200 dark:bg-zinc-800 group-hover:bg-blue-500 transition-colors" />
-                                Specialized Service
-                            </div>
-                        </motion.div>
-                    ))}
+                        return (
+                            <motion.div
+                                key={service.title}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 }}
+                                className={`group relative p-8 rounded-[2rem] bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 ${style.border} ${style.glow}`}
+                            >
+                                <div className={`w-14 h-14 rounded-2xl bg-zinc-50 dark:bg-zinc-800/50 flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 group-hover:text-white transition-all duration-500 ${style.iconText} ${style.iconBg}`}>
+                                    {service.icon}
+                                </div>
+                                <h3 className={`text-xl font-bold text-zinc-900 dark:text-white mb-4 transition-colors ${style.titleHover}`}>
+                                    {service.title}
+                                </h3>
+                                <p className="text-zinc-500 dark:text-zinc-400 text-[15px] leading-relaxed mb-8">
+                                    {service.description}
+                                </p>
+
+                                <div className={`flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-zinc-400 transition-colors ${style.titleHover}`}>
+                                    <div className={`w-8 h-[1px] bg-zinc-200 dark:bg-zinc-800 transition-colors ${style.line}`} />
+                                    Specialized Service
+                                </div>
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
         </section>
     );
 }
+
